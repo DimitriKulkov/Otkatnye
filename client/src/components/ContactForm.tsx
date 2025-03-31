@@ -77,78 +77,104 @@ const ContactForm = () => {
   }
 
   return (
-    <section id="contact" className="py-16 bg-[#F5E6D3]">
+    <section id="contact" className="py-20 bg-gradient-to-b from-[#F5F1E8] to-[#EDE5D6]">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-[#556B2F] mb-12">Связаться с нами</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <h3 className="text-2xl font-bold text-[#556B2F] mb-6">Контактная информация</h3>
-            <div className="space-y-6">
-              <div>
-                <h4 className="text-xl font-bold text-[#556B2F] mb-3">Телефоны</h4>
-                <p className="text-sm text-gray-600 mb-2">Выберите номер для связи через мессенджеры</p>
-                <div className="space-y-2">
+        <div className="text-center mb-14">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#3C4D34] mb-4">Связаться с нами</h2>
+          <div className="h-1 w-20 bg-[#A1B189] mx-auto mb-4"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto">Оставьте заявку, и наш специалист свяжется с вами для проведения бесплатного замера и расчета стоимости</p>
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-[#A1B189]">
+            <h3 className="text-2xl font-bold text-[#3C4D34] mb-6">Контактная информация</h3>
+            
+            <div className="space-y-8">
+              <div className="bg-[#F8F7F4] p-6 rounded-lg">
+                <h4 className="text-xl font-bold text-[#3C4D34] mb-4">Телефоны</h4>
+                <p className="text-sm text-gray-600 mb-3">Выберите номер для связи через мессенджеры</p>
+                
+                <div className="space-y-3">
                   <div 
-                    className={`flex items-center cursor-pointer ${selectedPhoneNumber === "+78953720542" ? "text-[#556B2F] font-medium" : "text-gray-800"}`}
+                    className={`flex items-center cursor-pointer p-2 rounded-md transition-all ${selectedPhoneNumber === "+78953720542" ? "bg-[#E8EDE2] text-[#3C4D34] font-medium" : "hover:bg-gray-100"}`}
                     onClick={() => setSelectedPhoneNumber("+78953720542")}
                   >
-                    <input type="radio" checked={selectedPhoneNumber === "+78953720542"} readOnly className="mr-2" />
+                    <input type="radio" checked={selectedPhoneNumber === "+78953720542"} readOnly className="mr-3" />
                     <a href="tel:+78953720542" className="hover:text-[#556B2F]" onClick={(e) => e.stopPropagation()}>+7 (895) 372-05-42</a>
                   </div>
+                  
                   <div 
-                    className={`flex items-center cursor-pointer ${selectedPhoneNumber === "+78902939666" ? "text-[#556B2F] font-medium" : "text-gray-800"}`}
+                    className={`flex items-center cursor-pointer p-2 rounded-md transition-all ${selectedPhoneNumber === "+78902939666" ? "bg-[#E8EDE2] text-[#3C4D34] font-medium" : "hover:bg-gray-100"}`}
                     onClick={() => setSelectedPhoneNumber("+78902939666")}
                   >
-                    <input type="radio" checked={selectedPhoneNumber === "+78902939666"} readOnly className="mr-2" />
+                    <input type="radio" checked={selectedPhoneNumber === "+78902939666"} readOnly className="mr-3" />
                     <a href="tel:+78902939666" className="hover:text-[#556B2F]" onClick={(e) => e.stopPropagation()}>+7 (890) 293-96-66</a>
                   </div>
+                  
                   <div 
-                    className={`flex items-center cursor-pointer ${selectedPhoneNumber === "+78915869282" ? "text-[#556B2F] font-medium" : "text-gray-800"}`}
+                    className={`flex items-center cursor-pointer p-2 rounded-md transition-all ${selectedPhoneNumber === "+78915869282" ? "bg-[#E8EDE2] text-[#3C4D34] font-medium" : "hover:bg-gray-100"}`}
                     onClick={() => setSelectedPhoneNumber("+78915869282")}
                   >
-                    <input type="radio" checked={selectedPhoneNumber === "+78915869282"} readOnly className="mr-2" />
+                    <input type="radio" checked={selectedPhoneNumber === "+78915869282"} readOnly className="mr-3" />
                     <a href="tel:+78915869282" className="hover:text-[#556B2F]" onClick={(e) => e.stopPropagation()}>+7 (891) 586-92-82</a>
                   </div>
                 </div>
                 
-                <div className="mt-2 p-2 bg-gray-100 rounded-md text-sm text-gray-700">
-                  Выбранный номер: <span className="font-medium">{selectedPhoneNumber}</span>
+                <div className="mt-4 p-3 bg-[#E8EDE2] rounded-lg text-sm text-[#3C4D34] border border-[#A1B189]/30">
+                  Выбранный номер: <span className="font-semibold">{selectedPhoneNumber}</span>
                 </div>
                 
-                <div className="mt-4 flex space-x-4">
+                <div className="mt-5 flex flex-col sm:flex-row gap-3">
                   <a 
                     href={`https://wa.me/${selectedPhoneNumber.replace(/^\+/, '')}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-all"
+                    className="flex items-center justify-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-lg hover:bg-opacity-90 transition-all shadow-sm w-full sm:w-auto"
                   >
-                    <FaWhatsapp size={20} />
+                    <FaWhatsapp size={22} />
                     <span>WhatsApp</span>
                   </a>
                   <a 
                     href={`https://t.me/${selectedPhoneNumber.replace(/^\+/, '')}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-[#0088cc] text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-all"
+                    className="flex items-center justify-center gap-2 bg-[#0088cc] text-white px-4 py-3 rounded-lg hover:bg-opacity-90 transition-all shadow-sm w-full sm:w-auto"
                   >
-                    <FaTelegram size={20} />
+                    <FaTelegram size={22} />
                     <span>Telegram</span>
                   </a>
                 </div>
               </div>
-              <div>
-                <h4 className="text-xl font-bold text-[#556B2F] mb-3">Email</h4>
-                <p><a href="mailto:zaborstroy68@yandex.com" className="text-gray-800 hover:text-[#556B2F]">zaborstroy68@yandex.com</a></p>
+              
+              <div className="flex items-start space-x-4">
+                <div className="bg-[#A1B189] p-2 rounded-full text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-lg font-medium text-[#3C4D34]">Email</h4>
+                  <p><a href="mailto:zaborstroy68@yandex.com" className="text-gray-700 hover:text-[#556B2F]">zaborstroy68@yandex.com</a></p>
+                </div>
               </div>
-              <div>
-                <h4 className="text-xl font-bold text-[#556B2F] mb-3">Режим работы</h4>
-                <p className="text-gray-800">Пн-Вс: 9:00 - 18:00</p>
-                <p className="text-gray-800">Выезд на замер: 7 дней в неделю</p>
+              
+              <div className="flex items-start space-x-4">
+                <div className="bg-[#A1B189] p-2 rounded-full text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-lg font-medium text-[#3C4D34]">Режим работы</h4>
+                  <p className="text-gray-700">Пн-Вс: 9:00 - 18:00</p>
+                  <p className="text-gray-700">Выезд на замер: 7 дней в неделю</p>
+                </div>
               </div>
             </div>
           </div>
-          <div>
-            <h3 className="text-2xl font-bold text-[#556B2F] mb-6">Форма расчета стоимости</h3>
+          
+          <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-[#A1B189]">
+            <h3 className="text-2xl font-bold text-[#3C4D34] mb-6">Рассчитать стоимость</h3>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
@@ -156,12 +182,12 @@ const ContactForm = () => {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-800 font-medium">Имя</FormLabel>
+                      <FormLabel className="text-[#3C4D34] font-medium">Имя</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="Введите ваше имя" 
                           {...field} 
-                          className="w-full px-4 py-3 border border-[#D3D3D3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#556B2F]"
+                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A1B189] focus:border-transparent bg-[#F8F7F4]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -174,12 +200,12 @@ const ContactForm = () => {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-800 font-medium">Телефон</FormLabel>
+                      <FormLabel className="text-[#3C4D34] font-medium">Телефон</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="+7 (___) ___-__-__" 
                           {...field} 
-                          className="w-full px-4 py-3 border border-[#D3D3D3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#556B2F]"
+                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A1B189] focus:border-transparent bg-[#F8F7F4]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -192,12 +218,12 @@ const ContactForm = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-800 font-medium">Email</FormLabel>
+                      <FormLabel className="text-[#3C4D34] font-medium">Email</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="example@domain.com" 
                           {...field} 
-                          className="w-full px-4 py-3 border border-[#D3D3D3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#556B2F]"
+                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A1B189] focus:border-transparent bg-[#F8F7F4]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -210,11 +236,11 @@ const ContactForm = () => {
                   name="service"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-800 font-medium">Тип услуги</FormLabel>
+                      <FormLabel className="text-[#3C4D34] font-medium">Тип услуги</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger 
-                            className="w-full px-4 py-3 border border-[#D3D3D3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#556B2F]"
+                            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A1B189] focus:border-transparent bg-[#F8F7F4]"
                           >
                             <SelectValue placeholder="Выберите услугу" />
                           </SelectTrigger>
@@ -236,11 +262,11 @@ const ContactForm = () => {
                   name="comments"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-800 font-medium">Комментарии</FormLabel>
+                      <FormLabel className="text-[#3C4D34] font-medium">Комментарии</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Опишите ваш проект или укажите дополнительные требования" 
-                          className="w-full px-4 py-3 border border-[#D3D3D3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#556B2F] h-32"
+                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A1B189] focus:border-transparent bg-[#F8F7F4] h-32"
                           {...field} 
                         />
                       </FormControl>
@@ -251,13 +277,13 @@ const ContactForm = () => {
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-[#556B2F] hover:bg-[#455A1F] text-white font-bold py-3 px-6 rounded-md transition duration-300 ease-in-out"
+                  className="w-full bg-[#3C4D34] hover:bg-[#526B47] text-white font-semibold py-4 px-6 rounded-lg transition duration-300 ease-in-out shadow-sm"
                   disabled={isPending}
                 >
                   {isPending ? "Отправка..." : "Рассчитать стоимость"}
                 </Button>
                 
-                <p className="text-sm text-gray-600 text-center">
+                <p className="text-sm text-gray-500 text-center">
                   Нажимая на кнопку, вы соглашаетесь с нашей политикой конфиденциальности
                 </p>
               </form>

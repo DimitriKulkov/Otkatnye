@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Calculator } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -10,7 +11,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 h-full flex items-center relative z-10">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Качественные заборы, навесы и ворота в Воронеже
+            Качественные заборы, навесы и ворота в Москве и Московской области
           </h1>
           <p className="text-xl text-white mb-8">
             Профессиональная установка с гарантией. Бесплатный выезд для замера.
@@ -31,10 +32,16 @@ const Hero = () => {
             <Button 
               size="lg"
               variant="outline" 
-              className="bg-white hover:bg-gray-100 text-[#556B2F] border-[#556B2F] text-base"
-              asChild
+              className="bg-[#F5F1E8] hover:bg-[#EDE5D6] text-[#556B2F] border-[#556B2F] text-base flex items-center gap-2"
+              onClick={() => {
+                const pricingSection = document.getElementById('pricing');
+                if (pricingSection) {
+                  pricingSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
-              <a href="tel:+78953720542">Позвонить сейчас</a>
+              <Calculator className="h-5 w-5" />
+              Рассчитать стоимость
             </Button>
           </div>
         </div>
