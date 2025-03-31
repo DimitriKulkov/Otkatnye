@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import CallToAction from "@/components/CallToAction";
 import Pricing from "@/components/Pricing";
+import InstallationSteps from "@/components/InstallationSteps";
 import Reviews from "@/components/Reviews";
 import FAQ from "@/components/FAQ";
 import ContactForm from "@/components/ContactForm";
@@ -17,6 +18,7 @@ const Home = () => {
         <Services />
         <CallToAction />
         <Pricing />
+        <InstallationSteps />
         <Reviews />
         <FAQ />
         <ContactForm />

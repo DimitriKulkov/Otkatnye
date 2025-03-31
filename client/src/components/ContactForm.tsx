@@ -92,13 +92,12 @@ const ContactForm = () => {
               </div>
               <div>
                 <h4 className="text-xl font-bold text-[#556B2F] mb-3">Email</h4>
-                <p><a href="mailto:zaborstroy68@yandex.ru" className="text-gray-800 hover:text-[#556B2F]">zaborstroy68@yandex.ru</a></p>
+                <p><a href="mailto:zaborstroy68@yandex.com" className="text-gray-800 hover:text-[#556B2F]">zaborstroy68@yandex.com</a></p>
               </div>
               <div>
                 <h4 className="text-xl font-bold text-[#556B2F] mb-3">Режим работы</h4>
-                <p className="text-gray-800">Пн-Пт: 9:00 - 18:00</p>
-                <p className="text-gray-800">Сб: 10:00 - 16:00</p>
-                <p className="text-gray-800">Вс: выходной</p>
+                <p className="text-gray-800">Пн-Вс: 9:00 - 18:00</p>
+                <p className="text-gray-800">Выезд на замер: 7 дней в неделю</p>
               </div>
             </div>
           </div>

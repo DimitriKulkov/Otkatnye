@@ -19,6 +19,7 @@ const Header = () => {
         <div className="hidden md:flex items-center space-x-6">
           <a href="#services" className="text-gray-800 hover:text-[#556B2F] font-medium">Услуги</a>
           <a href="#pricing" className="text-gray-800 hover:text-[#556B2F] font-medium">Цены</a>
+          <a href="#installation" className="text-gray-800 hover:text-[#556B2F] font-medium">Этапы работ</a>
           <a href="#reviews" className="text-gray-800 hover:text-[#556B2F] font-medium">Отзывы</a>
           <a href="#faq" className="text-gray-800 hover:text-[#556B2F] font-medium">FAQ</a>
           <a href="#contact" className="text-gray-800 hover:text-[#556B2F] font-medium">Контакты</a>
@@ -50,6 +51,13 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Цены
+            </a>
+            <a 
+              href="#installation" 
+              className="text-gray-800 hover:text-[#556B2F] font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Этапы работ
             </a>
             <a 
               href="#reviews" 
