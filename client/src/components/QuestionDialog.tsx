@@ -89,8 +89,10 @@ const QuestionDialog = ({ triggerClassName, children }: QuestionDialogProps) => 
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger className={triggerClassName}>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[500px]">
+      <DialogTrigger asChild>
+        <span className={triggerClassName}>{children}</span>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl font-bold text-[#3C4D34]">Задать вопрос</DialogTitle>
           <DialogDescription className="text-center px-4">
