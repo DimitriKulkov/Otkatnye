@@ -1,5 +1,6 @@
-import { Logo } from "@/assets/logo";
+import logoImg from "@/assets/logo-new.png";
 import { MapPin, Clock, Phone, Mail } from "lucide-react";
+import { FaTelegram, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center mb-5">
-              <Logo className="h-12 w-auto" />
+              <img src={logoImg} alt="ПрофОград" className="h-14 w-auto" />
               <h3 className="ml-3 text-xl font-bold">ПрофОград</h3>
             </div>
             <p className="text-white/90 mb-6 max-w-md">
@@ -47,6 +48,18 @@ const Footer = () => {
                 <a href="mailto:zaborstroy68@yandex.com" className="text-white/80 hover:text-white flex items-center gap-2">
                   <Mail className="h-4 w-4 text-[#A1B189]" />
                   zaborstroy68@yandex.com
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/78953720542" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white flex items-center gap-2">
+                  <FaWhatsapp className="h-4 w-4 text-[#A1B189]" />
+                  WhatsApp
+                </a>
+              </li>
+              <li>
+                <a href="https://t.me/+78953720542" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white flex items-center gap-2">
+                  <FaTelegram className="h-4 w-4 text-[#A1B189]" />
+                  Telegram
                 </a>
               </li>
             </ul>
