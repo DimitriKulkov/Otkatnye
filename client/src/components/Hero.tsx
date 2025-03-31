@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Calculator } from "lucide-react";
+import { Calculator, MousePointerClick } from "lucide-react";
+import CalculatorDialog from "./CalculatorDialog";
 
 const Hero = () => {
   return (
@@ -19,7 +20,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
               size="lg"
-              className="bg-[#556B2F] hover:bg-[#455A1F] text-white text-base"
+              className="bg-[#3C4D34] hover:bg-[#2E3B28] text-white text-base"
               onClick={() => {
                 const contactSection = document.getElementById('contact');
                 if (contactSection) {
@@ -27,22 +28,20 @@ const Hero = () => {
                 }
               }}
             >
+              <MousePointerClick className="h-4 w-4 mr-2" />
               Бесплатный замер
             </Button>
-            <Button 
-              size="lg"
-              variant="outline" 
-              className="bg-[#F5F1E8] hover:bg-[#EDE5D6] text-[#556B2F] border-[#556B2F] text-base flex items-center gap-2"
-              onClick={() => {
-                const pricingSection = document.getElementById('pricing');
-                if (pricingSection) {
-                  pricingSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              <Calculator className="h-5 w-5" />
-              Рассчитать стоимость
-            </Button>
+            
+            <CalculatorDialog>
+              <Button 
+                size="lg"
+                variant="outline" 
+                className="bg-white hover:bg-[#F8F7F4] text-[#3C4D34] border-[#3C4D34] text-base flex items-center gap-2"
+              >
+                <Calculator className="h-4 w-4" />
+                Рассчитать стоимость
+              </Button>
+            </CalculatorDialog>
           </div>
         </div>
       </div>

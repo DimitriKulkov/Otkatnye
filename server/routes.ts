@@ -14,9 +14,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const contactRequest = await storage.createContactRequest({
         name: data.name,
         phone: data.phone,
-        email: data.email || "",
-        service: data.service,
-        comments: data.comments || "",
+        email: data.email || null,
+        service: data.service || null,
+        comments: data.comments || null,
+        requestType: data.requestType,
       });
       
       res.json({ 

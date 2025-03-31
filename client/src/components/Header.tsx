@@ -30,6 +30,7 @@ const Header = () => {
           <a href="#services" className="text-gray-700 hover:text-[#3C4D34] hover:underline decoration-[#A1B189] underline-offset-4 font-medium transition-all">Услуги</a>
           <a href="#pricing" className="text-gray-700 hover:text-[#3C4D34] hover:underline decoration-[#A1B189] underline-offset-4 font-medium transition-all">Цены</a>
           <a href="#installation" className="text-gray-700 hover:text-[#3C4D34] hover:underline decoration-[#A1B189] underline-offset-4 font-medium transition-all">Этапы работ</a>
+          <a href="#projects" className="text-gray-700 hover:text-[#3C4D34] hover:underline decoration-[#A1B189] underline-offset-4 font-medium transition-all">Проекты</a>
           <a href="#reviews" className="text-gray-700 hover:text-[#3C4D34] hover:underline decoration-[#A1B189] underline-offset-4 font-medium transition-all">Отзывы</a>
           <a href="#faq" className="text-gray-700 hover:text-[#3C4D34] hover:underline decoration-[#A1B189] underline-offset-4 font-medium transition-all">Контакты</a>
         </div>
@@ -68,6 +69,13 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Этапы работ
+            </a>
+            <a 
+              href="#projects" 
+              className="text-[#3C4D34] py-2 px-4 hover:bg-[#F8F7F4] rounded-md font-medium transition-all flex items-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Проекты
             </a>
             <a 
               href="#reviews" 

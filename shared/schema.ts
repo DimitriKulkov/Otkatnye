@@ -13,8 +13,9 @@ export const contactRequests = pgTable("contact_requests", {
   name: text("name").notNull(),
   phone: text("phone").notNull(),
   email: text("email"),
-  service: text("service").notNull(),
+  service: text("service"),
   comments: text("comments"),
+  requestType: text("request_type").notNull(), // "cost", "question", "review"
   createdAt: text("created_at").notNull().default("NOW()"),
 });
 
@@ -29,6 +30,7 @@ export const insertContactRequestSchema = createInsertSchema(contactRequests).pi
   email: true,
   service: true,
   comments: true,
+  requestType: true,
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;

@@ -1,0 +1,243 @@
+import { useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  location: string;
+  type: string;
+  imageUrl: string;
+  tags: string[];
+}
+
+const projectsData: Project[] = [
+  // Заборы
+  {
+    id: 1,
+    title: "Забор из профнастила",
+    description: "Установка забора из профнастила высотой 2 метра на металлическом каркасе.",
+    location: "Москва, район Митино",
+    type: "fence",
+    imageUrl: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["Профнастил", "Металлический каркас", "Двухсторонний"]
+  },
+  {
+    id: 2,
+    title: "Забор из евроштакетника",
+    description: "Установка забора из евроштакетника с шахматным расположением элементов.",
+    location: "Московская область, Химки",
+    type: "fence",
+    imageUrl: "https://images.unsplash.com/photo-1631885134871-c3a652d76208?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["Евроштакетник", "Шахматная установка", "Забор с фундаментом"]
+  },
+  {
+    id: 3,
+    title: "3D забор из сетки",
+    description: "Установка 3D забора из сварной сетки с полимерным покрытием.",
+    location: "Москва, Новая Москва",
+    type: "fence",
+    imageUrl: "https://images.unsplash.com/photo-1628944682084-831f35256aea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["3D сетка", "Полимерное покрытие", "Современный дизайн"]
+  },
+  {
+    id: 4,
+    title: "Секционный забор",
+    description: "Монтаж секционного забора с кирпичными столбами для загородного дома.",
+    location: "Московская область, Одинцово",
+    type: "fence",
+    imageUrl: "https://images.unsplash.com/photo-1518618750560-8f07abda93d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["Секционный", "Кирпичные столбы", "Частный дом"]
+  },
+  
+  // Навесы
+  {
+    id: 5,
+    title: "Навес из поликарбоната",
+    description: "Установка навеса из сотового поликарбоната для автомобиля с каркасом из металла.",
+    location: "Москва, район Кузьминки",
+    type: "canopy",
+    imageUrl: "https://images.unsplash.com/photo-1598554369497-b8474b0bfdf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["Поликарбонат", "Навес для автомобиля", "Арочная конструкция"]
+  },
+  {
+    id: 6,
+    title: "Навес для террасы",
+    description: "Монтаж навеса с комбинированным покрытием для летней террасы загородного дома.",
+    location: "Московская область, Красногорск",
+    type: "canopy",
+    imageUrl: "https://images.unsplash.com/photo-1598181819743-7eed687bcdf2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["Для террасы", "Комбинированное покрытие", "Летний отдых"]
+  },
+  {
+    id: 7,
+    title: "Навес для бассейна",
+    description: "Изготовление и установка сдвижного навеса над бассейном на придомовой территории.",
+    location: "Московская область, Мытищи",
+    type: "canopy",
+    imageUrl: "https://images.unsplash.com/photo-1629774631812-eb9e7a9fb7b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["Сдвижной навес", "Для бассейна", "Всесезонное использование"]
+  },
+  
+  // Ворота
+  {
+    id: 8,
+    title: "Откатные ворота с автоматикой",
+    description: "Установка откатных ворот с автоматическим приводом и дистанционным управлением.",
+    location: "Москва, район Строгино",
+    type: "gate",
+    imageUrl: "https://images.unsplash.com/photo-1542372147193-a7aca54189cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["Откатные", "Автоматика", "Дистанционное управление"]
+  },
+  {
+    id: 9,
+    title: "Распашные ворота",
+    description: "Изготовление и установка распашных ворот с калиткой для загородного участка.",
+    location: "Московская область, Солнечногорск",
+    type: "gate",
+    imageUrl: "https://images.unsplash.com/photo-1588880331179-bc93f1a29f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["Распашные", "С калиткой", "Для частного дома"]
+  },
+  {
+    id: 10,
+    title: "Декоративные кованые ворота",
+    description: "Разработка и установка кованых ворот с элементами художественной ковки.",
+    location: "Москва, Рублевское шоссе",
+    type: "gate",
+    imageUrl: "https://images.unsplash.com/photo-1541807120430-f3f78c281225?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["Кованые", "Художественная ковка", "Премиум-класс"]
+  }
+];
+
+const Projects = () => {
+  const [selectedType, setSelectedType] = useState<string>("all");
+  
+  const filteredProjects = selectedType === "all" 
+    ? projectsData 
+    : projectsData.filter(project => project.type === selectedType);
+  
+  return (
+    <section id="projects" className="py-20 bg-[#F8F7F4]">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#3C4D34] mb-4">Наши проекты</h2>
+          <div className="h-1 w-20 bg-[#A1B189] mx-auto mb-4"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto">Примеры выполненных нами работ по установке заборов, навесов и ворот в Москве и Московской области</p>
+        </div>
+        
+        <Tabs defaultValue="all" className="max-w-5xl mx-auto">
+          <div className="flex justify-center mb-8">
+            <TabsList className="bg-[#E8EDE2] p-1 rounded-lg">
+              <TabsTrigger 
+                value="all" 
+                className="py-2 px-6 text-base rounded-md data-[state=active]:bg-[#3C4D34] data-[state=active]:text-white"
+                onClick={() => setSelectedType("all")}
+              >
+                Все проекты
+              </TabsTrigger>
+              <TabsTrigger 
+                value="fence" 
+                className="py-2 px-6 text-base rounded-md data-[state=active]:bg-[#3C4D34] data-[state=active]:text-white"
+                onClick={() => setSelectedType("fence")}
+              >
+                Заборы
+              </TabsTrigger>
+              <TabsTrigger 
+                value="canopy" 
+                className="py-2 px-6 text-base rounded-md data-[state=active]:bg-[#3C4D34] data-[state=active]:text-white"
+                onClick={() => setSelectedType("canopy")}
+              >
+                Навесы
+              </TabsTrigger>
+              <TabsTrigger 
+                value="gate" 
+                className="py-2 px-6 text-base rounded-md data-[state=active]:bg-[#3C4D34] data-[state=active]:text-white"
+                onClick={() => setSelectedType("gate")}
+              >
+                Ворота
+              </TabsTrigger>
+            </TabsList>
+          </div>
+          
+          <TabsContent value="all" className="mt-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="fence" className="mt-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="canopy" className="mt-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="gate" className="mt-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
+    </section>
+  );
+};
+
+const ProjectCard = ({ project }: { project: Project }) => {
+  return (
+    <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+      <div className="relative h-60 overflow-hidden">
+        <img 
+          src={project.imageUrl} 
+          alt={project.title} 
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        />
+        <div className="absolute top-3 right-3">
+          <Badge className="bg-[#3C4D34] hover:bg-[#3C4D34]/90">
+            {project.type === "fence" ? "Забор" : project.type === "canopy" ? "Навес" : "Ворота"}
+          </Badge>
+        </div>
+      </div>
+      
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-[#3C4D34] mb-2">{project.title}</h3>
+        <p className="text-gray-600 mb-4">{project.description}</p>
+        
+        <div className="flex items-center text-sm text-gray-500 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          {project.location}
+        </div>
+        
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag, index) => (
+            <span 
+              key={index} 
+              className="bg-[#E8EDE2] text-[#3C4D34] text-xs py-1 px-2 rounded-full"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Projects;
