@@ -1,24 +1,24 @@
-import { MailService } from '@sendgrid/mail';
+import nodemailer from 'nodemailer';
 import { RequestType } from "@shared/schema";
 
-// Check if the SendGrid API key is set
-const apiKey = process.env.SENDGRID_API_KEY;
-if (!apiKey) {
-  console.warn("Warning: SENDGRID_API_KEY environment variable is not set. Email notifications will not be sent.");
-}
-
-// Initialize mail service
-const mailService = new MailService();
-if (apiKey) {
-  try {
-    mailService.setApiKey(apiKey);
-  } catch (error) {
-    console.error("Error setting SendGrid API key:", error);
-  }
-}
-
 const COMPANY_EMAIL = "zaborstroy68@yandex.com";
-const FROM_EMAIL = "noreply@profogradzabor.ru"; // You may need to verify this sender domain in SendGrid
+
+// Check if Yandex mail password is set
+const yandexPassword = process.env.YANDEX_MAIL_KEY;
+if (!yandexPassword) {
+  console.warn("Warning: YANDEX_MAIL_KEY environment variable is not set. Email notifications will not be sent.");
+}
+
+// Create reusable transporter object using Yandex SMTP
+const transporter = nodemailer.createTransport({
+  host: "smtp.yandex.ru",
+  port: 465,
+  secure: true, // use SSL
+  auth: {
+    user: COMPANY_EMAIL,
+    pass: yandexPassword,
+  },
+});
 
 interface EmailParams {
   to: string;
@@ -28,29 +28,31 @@ interface EmailParams {
 }
 
 export async function sendEmail(params: EmailParams): Promise<boolean> {
-  if (!apiKey) {
-    console.log("Email sending skipped: No API key");
+  if (!yandexPassword) {
+    console.log("Email sending skipped: No Yandex mail password provided");
     // Log the email content for development purposes
     console.log("Email that would have been sent:", {
       to: params.to,
-      from: FROM_EMAIL,
+      from: COMPANY_EMAIL,
       subject: params.subject,
     });
     return true; // Return true to not disrupt the user experience in development
   }
 
   try {
-    await mailService.send({
+    const mailOptions = {
+      from: COMPANY_EMAIL, // Use the same address for both from and auth user
       to: params.to,
-      from: FROM_EMAIL,
       subject: params.subject,
-      text: params.text || '', // Default to empty string if undefined
-      html: params.html || '', // Default to empty string if undefined
-    });
-    console.log(`Email sent successfully to ${params.to}`);
+      text: params.text || '',
+      html: params.html || '',
+    };
+
+    const info = await transporter.sendMail(mailOptions);
+    console.log(`Email sent successfully to ${params.to}. Message ID: ${info.messageId}`);
     return true;
   } catch (error) {
-    console.error('SendGrid email error:', error);
+    console.error('Yandex mail error:', error);
     // Log the error details for debugging
     if (error instanceof Error) {
       console.error('Error message:', error.message);
