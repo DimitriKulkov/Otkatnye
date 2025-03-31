@@ -229,7 +229,7 @@ ${data.comments ? `Дополнительно: ${data.comments}` : ""}
                       </FormControl>
                       <SelectContent>
                         {getServiceTypeOptions().map((option) => (
-                          <SelectItem key={option.toString()} value={option.toString()}>{option}</SelectItem>
+                          <SelectItem key={option.title} value={option.title}>{option.title}</SelectItem>
                         ))}
                       </SelectContent>
                     </Select>

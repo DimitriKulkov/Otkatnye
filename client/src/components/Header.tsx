@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import { Logo } from "@/assets/logo";
+import logoImg from "@/assets/logo-new.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,7 +23,7 @@ const Header = () => {
     <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md py-2" : "bg-[#F5F1E8] py-4"}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <Logo className="h-14 w-auto" />
+          <img src={logoImg} alt="ПрофОград" className="h-16 w-auto" />
           <h1 className="ml-3 text-2xl font-bold text-[#3C4D34]">ПрофОград</h1>
         </div>
         <div className="hidden md:flex items-center space-x-8">

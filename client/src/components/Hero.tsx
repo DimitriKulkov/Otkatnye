@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Calculator, MousePointerClick } from "lucide-react";
-import CalculatorDialog from "./CalculatorDialog";
 
 const Hero = () => {
   return (
@@ -32,16 +31,20 @@ const Hero = () => {
               Бесплатный замер
             </Button>
             
-            <CalculatorDialog>
-              <Button 
-                size="lg"
-                variant="outline" 
-                className="bg-white hover:bg-[#F8F7F4] text-[#3C4D34] border-[#3C4D34] text-base flex items-center gap-2"
-              >
-                <Calculator className="h-4 w-4" />
-                Рассчитать стоимость
-              </Button>
-            </CalculatorDialog>
+            <Button 
+              size="lg"
+              variant="outline" 
+              className="bg-white hover:bg-[#F8F7F4] text-[#3C4D34] border-[#3C4D34] text-base flex items-center gap-2"
+              onClick={() => {
+                const pricingSection = document.getElementById('pricing');
+                if (pricingSection) {
+                  pricingSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              <Calculator className="h-4 w-4" />
+              Рассчитать стоимость
+            </Button>
           </div>
         </div>
       </div>
