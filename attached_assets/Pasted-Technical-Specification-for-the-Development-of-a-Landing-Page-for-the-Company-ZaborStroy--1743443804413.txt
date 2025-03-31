@@ -1,0 +1,131 @@
+Technical Specification for the Development of a Landing Page for the Company "ZaborStroy"  
+
+---
+
+### 1. Purpose and Target Audience  
+- Purpose: Attract customers for ordering services related to fence installation, canopies, and gates.  
+- Target Audience: Private homeowners, dacha owners, and commercial property owners in Voronezh and the surrounding region.  
+
+---
+
+### 2. Website Structure  
+1. Hero Section: Call to action, contact details, "Free Measurement" button.  
+2. Services: Detailed breakdown by category (fences, canopies, gates).  
+3. Prices: Table/cards displaying pricing.  
+4. Reviews: Genuine customer reviews with photos of completed projects.  
+5. FAQ: Answers to frequently asked questions.  
+6. Contacts: Phone numbers, email, cost calculation form.  
+7. Cost Calculation Form: Fields for submitting requests.  
+
+---
+
+### 3. Content and Functionality  
+
+#### 3.1. Services  
+3.1.1. Fences  
+- Materials:  
+  - Chain-link fencing (cost-effective, quick installation).  
+  - Corrugated sheet fencing (durability, wind protection).  
+  - Euro picket fence (aesthetic appeal, anti-corrosion coating).  
+  - 3D mesh fencing (modern design, high strength).  
+  - Sectional fencing (modular design).  
+  - Polycarbonate fencing (light transmission, UV resistance).  
+
+3.1.2. Canopies  
+- Types:  
+  - Metal tile canopies (reliability, stylish appearance).  
+  - Soft roofing canopies (flexibility, noise reduction).  
+  - Polycarbonate canopies (lightweight, weather resistance).  
+
+3.1.3. Gates  
+- Types:  
+  - Sliding gates (space-saving, automation compatibility).  
+  - Swing gates (classic design, ease of use).  
+  - Gates (customizable design to match fencing).  
+  - Automation systems (remote control, enhanced security).  
+
+---
+
+#### 3.2. Pricing  
+Display prices in a table/card format with emphasis on "starting from":  
+1. Chain-link fencing — from 900 RUB/linear meter (lm).  
+2. Corrugated sheet fencing — from 2,000 RUB/lm.  
+3. Euro picket fence — from 2,500 RUB/lm.  
+4. 3D mesh fencing — from 1,900 RUB/lm.  
+5. Canopies — from 6,500 RUB/m².  
+6. Sliding gates — from 70,000 RUB.  
+7. Swing gates — from 20,000 RUB.  
+8. Gates — from 8,000 RUB.  
+9. Automation systems — from 35,000 RUB.  
+10. Sectional fencing — from 3,500 RUB.  
+11. Polycarbonate fencing — price upon request.  
+- Note: "Final cost depends on project complexity. Free on-site measurement!"  
+
+---
+
+#### 3.3. Contact Information  
+- Phone Numbers:  
+  1. +7 (895) 372-05-42  
+  2. +7 (890) 293-96-66  
+  3. +7 (891) 586-92-82  
+- Email for Cost Calculations: zaborstroy68@yandex.ru.  
+
+---
+
+#### 3.4. Additional Sections  
+- Reviews: Allow admin to add/remove reviews with photos via CMS.  
+- FAQ: Example questions:  
+  - "How long does installation take?"  
+  - "What warranties do you provide?"  
+  - "How do I place an order?"  
+- Cost Calculation Form:  
+  - Fields: Name, Phone, Email, Service Type, Comments.  
+  - Post-submission message: "Thank you! Our manager will contact you within 30 minutes."  
+
+---
+
+### 4. Design Requirements  
+- Style: Minimalist, with emphasis on high-quality project photos.  
+- Color Scheme:  
+  - Primary Background: Soft beige (#F5E6D3).  
+  - Text and Dividers: Gray (#D3D3D3).  
+  - Accents: Dark green (#556B2F) for CTA buttons, headings, and key elements.  
+- Logo: Minimalist silhouette of a fence/gate in dark green on a beige background.  
+- Fonts: Clean sans-serif typefaces (e.g., Roboto, Open Sans).  
+
+---
+
+### 5. Technical Requirements  
+- Responsiveness: Mobile-friendly design.  
+- CMS: WordPress with admin capabilities:  
+  - Edit text, prices, reviews, and FAQ content.  
+  - Add/remove content via a user-friendly interface.  
+  - User role management (Admin, Editor).  
+- Integrations:  
+  - Email submission of forms (WPForms plugin).  
+  - Yandex.Metrica for analytics.  
+- Backups: Weekly automated data backups.  
+
+---
+### 6. Administration Requirements  
+1. Content Management:  
+   - Edit all text blocks, prices, and service descriptions.  
+2. Review Moderation:  
+   - Add, remove, or edit customer reviews.  
+3. FAQ Updates:  
+   - Add new questions and answers.  
+4. Security:  
+   - Regular CMS and plugin updates.  
+
+---
+
+### 7. Final Deliverables  
+- An intuitive landing page focused on key actions: "Request Measurement," "Calculate Cost," "Call Now."  
+- Aesthetic, pastel-toned design highlighting project photos.  
+- Admin panel enabling content updates without developer assistance.  
+- Full documentation and training for CMS usage.  
+
+--- 
+
+Note for Developers:  
+- Ensure...
