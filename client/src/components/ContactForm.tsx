@@ -5,6 +5,7 @@ import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { FaWhatsapp, FaTelegram } from "react-icons/fa";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -37,6 +38,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
   const { toast } = useToast();
+  const [selectedPhoneNumber, setSelectedPhoneNumber] = useState<string>("+78953720542");
   
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -85,9 +87,48 @@ const ContactForm = () => {
               <div>
                 <h4 className="text-xl font-bold text-[#556B2F] mb-3">Телефоны</h4>
                 <div className="space-y-2">
-                  <p><a href="tel:+78953720542" className="text-gray-800 hover:text-[#556B2F]">+7 (895) 372-05-42</a></p>
-                  <p><a href="tel:+78902939666" className="text-gray-800 hover:text-[#556B2F]">+7 (890) 293-96-66</a></p>
-                  <p><a href="tel:+78915869282" className="text-gray-800 hover:text-[#556B2F]">+7 (891) 586-92-82</a></p>
+                  <div 
+                    className={`flex items-center cursor-pointer ${selectedPhoneNumber === "+78953720542" ? "text-[#556B2F] font-medium" : "text-gray-800"}`}
+                    onClick={() => setSelectedPhoneNumber("+78953720542")}
+                  >
+                    <input type="radio" checked={selectedPhoneNumber === "+78953720542"} readOnly className="mr-2" />
+                    <a href="tel:+78953720542" className="hover:text-[#556B2F]" onClick={(e) => e.stopPropagation()}>+7 (895) 372-05-42</a>
+                  </div>
+                  <div 
+                    className={`flex items-center cursor-pointer ${selectedPhoneNumber === "+78902939666" ? "text-[#556B2F] font-medium" : "text-gray-800"}`}
+                    onClick={() => setSelectedPhoneNumber("+78902939666")}
+                  >
+                    <input type="radio" checked={selectedPhoneNumber === "+78902939666"} readOnly className="mr-2" />
+                    <a href="tel:+78902939666" className="hover:text-[#556B2F]" onClick={(e) => e.stopPropagation()}>+7 (890) 293-96-66</a>
+                  </div>
+                  <div 
+                    className={`flex items-center cursor-pointer ${selectedPhoneNumber === "+78915869282" ? "text-[#556B2F] font-medium" : "text-gray-800"}`}
+                    onClick={() => setSelectedPhoneNumber("+78915869282")}
+                  >
+                    <input type="radio" checked={selectedPhoneNumber === "+78915869282"} readOnly className="mr-2" />
+                    <a href="tel:+78915869282" className="hover:text-[#556B2F]" onClick={(e) => e.stopPropagation()}>+7 (891) 586-92-82</a>
+                  </div>
+                </div>
+                
+                <div className="mt-4 flex space-x-4">
+                  <a 
+                    href={`https://wa.me/${selectedPhoneNumber.replace(/[^0-9]/g, '')}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-all"
+                  >
+                    <FaWhatsapp size={20} />
+                    <span>WhatsApp</span>
+                  </a>
+                  <a 
+                    href={`https://t.me/${selectedPhoneNumber.replace(/[^0-9]/g, '')}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-[#0088cc] text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-all"
+                  >
+                    <FaTelegram size={20} />
+                    <span>Telegram</span>
+                  </a>
                 </div>
               </div>
               <div>

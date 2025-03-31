@@ -1,5 +1,5 @@
 import { fenceTypes, canopyTypes, gateTypes } from "@/data";
-import { Tab, Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Check } from "lucide-react";
 
 const InstallationSteps = () => {
