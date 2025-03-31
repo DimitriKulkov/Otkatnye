@@ -167,6 +167,7 @@ const InstallationSteps = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#556B2F] mb-4">Этапы выполнения работ</h2>
+          <div className="h-1 w-20 bg-[#556B2F] mx-auto mb-6"></div>
           <p className="text-gray-700 max-w-3xl mx-auto">
             Мы обеспечиваем прозрачный и структурированный подход к каждому проекту. Ознакомьтесь с основными этапами нашей работы для разных типов конструкций.
           </p>
@@ -182,9 +183,9 @@ const InstallationSteps = () => {
           <TabsContent value="fence">
             <div className="grid gap-6 md:gap-8">
               {fenceSteps.map((step) => (
-                <div key={step.number} className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-4 items-start transition-all hover:shadow-lg">
+                <div key={step.number} className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-4 items-start transition-all hover:shadow-lg hover:border-l-4 hover:border-[#556B2F]">
                   <div className="flex-shrink-0">
-                    <div className="bg-[#556B2F] text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+                    <div className="bg-[#556B2F] text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-md">
                       {step.number}
                     </div>
                   </div>
@@ -200,9 +201,9 @@ const InstallationSteps = () => {
           <TabsContent value="canopy">
             <div className="grid gap-6 md:gap-8">
               {canopySteps.map((step) => (
-                <div key={step.number} className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-4 items-start transition-all hover:shadow-lg">
+                <div key={step.number} className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-4 items-start transition-all hover:shadow-lg hover:border-l-4 hover:border-[#556B2F]">
                   <div className="flex-shrink-0">
-                    <div className="bg-[#556B2F] text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+                    <div className="bg-[#556B2F] text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-md">
                       {step.number}
                     </div>
                   </div>
@@ -218,9 +219,9 @@ const InstallationSteps = () => {
           <TabsContent value="gate">
             <div className="grid gap-6 md:gap-8">
               {gateSteps.map((step) => (
-                <div key={step.number} className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-4 items-start transition-all hover:shadow-lg">
+                <div key={step.number} className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-4 items-start transition-all hover:shadow-lg hover:border-l-4 hover:border-[#556B2F]">
                   <div className="flex-shrink-0">
-                    <div className="bg-[#556B2F] text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+                    <div className="bg-[#556B2F] text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-md">
                       {step.number}
                     </div>
                   </div>
@@ -234,34 +235,43 @@ const InstallationSteps = () => {
           </TabsContent>
         </Tabs>
         
-        <div className="mt-16 bg-white rounded-lg shadow-md p-8 max-w-5xl mx-auto">
+        <div className="mt-16 bg-white rounded-lg shadow-md p-8 max-w-5xl mx-auto border-t-4 border-[#556B2F]">
           <h3 className="text-2xl font-bold text-[#556B2F] mb-6 text-center">Наши преимущества</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="flex items-start space-x-4">
-              <Check className="text-[#556B2F] h-6 w-6 mt-1 flex-shrink-0" />
+          <div className="h-1 w-20 bg-[#556B2F] mx-auto mb-8 opacity-50"></div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="flex items-start space-x-4 bg-[#F9F7F4] p-5 rounded-lg hover:shadow-md transition-all">
+              <div className="bg-[#556B2F] text-white rounded-full p-2 flex-shrink-0">
+                <Check className="h-5 w-5" />
+              </div>
               <div>
-                <h4 className="font-semibold text-lg mb-2">Соблюдение сроков</h4>
+                <h4 className="font-semibold text-lg mb-2 text-[#556B2F]">Соблюдение сроков</h4>
                 <p className="text-gray-700">Мы строго придерживаемся согласованных сроков выполнения каждого этапа работ.</p>
               </div>
             </div>
-            <div className="flex items-start space-x-4">
-              <Check className="text-[#556B2F] h-6 w-6 mt-1 flex-shrink-0" />
+            <div className="flex items-start space-x-4 bg-[#F9F7F4] p-5 rounded-lg hover:shadow-md transition-all">
+              <div className="bg-[#556B2F] text-white rounded-full p-2 flex-shrink-0">
+                <Check className="h-5 w-5" />
+              </div>
               <div>
-                <h4 className="font-semibold text-lg mb-2">Прозрачное ценообразование</h4>
+                <h4 className="font-semibold text-lg mb-2 text-[#556B2F]">Прозрачное ценообразование</h4>
                 <p className="text-gray-700">Стоимость работ фиксируется в договоре и не меняется в процессе.</p>
               </div>
             </div>
-            <div className="flex items-start space-x-4">
-              <Check className="text-[#556B2F] h-6 w-6 mt-1 flex-shrink-0" />
+            <div className="flex items-start space-x-4 bg-[#F9F7F4] p-5 rounded-lg hover:shadow-md transition-all">
+              <div className="bg-[#556B2F] text-white rounded-full p-2 flex-shrink-0">
+                <Check className="h-5 w-5" />
+              </div>
               <div>
-                <h4 className="font-semibold text-lg mb-2">Профессиональные мастера</h4>
+                <h4 className="font-semibold text-lg mb-2 text-[#556B2F]">Профессиональные мастера</h4>
                 <p className="text-gray-700">Все работы выполняются опытными специалистами с многолетним стажем.</p>
               </div>
             </div>
-            <div className="flex items-start space-x-4">
-              <Check className="text-[#556B2F] h-6 w-6 mt-1 flex-shrink-0" />
+            <div className="flex items-start space-x-4 bg-[#F9F7F4] p-5 rounded-lg hover:shadow-md transition-all">
+              <div className="bg-[#556B2F] text-white rounded-full p-2 flex-shrink-0">
+                <Check className="h-5 w-5" />
+              </div>
               <div>
-                <h4 className="font-semibold text-lg mb-2">Гарантия качества</h4>
+                <h4 className="font-semibold text-lg mb-2 text-[#556B2F]">Гарантия качества</h4>
                 <p className="text-gray-700">Мы предоставляем гарантию на все виды работ и используемые материалы.</p>
               </div>
             </div>

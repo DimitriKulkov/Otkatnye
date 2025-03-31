@@ -86,6 +86,7 @@ const ContactForm = () => {
             <div className="space-y-6">
               <div>
                 <h4 className="text-xl font-bold text-[#556B2F] mb-3">Телефоны</h4>
+                <p className="text-sm text-gray-600 mb-2">Выберите номер для связи через мессенджеры</p>
                 <div className="space-y-2">
                   <div 
                     className={`flex items-center cursor-pointer ${selectedPhoneNumber === "+78953720542" ? "text-[#556B2F] font-medium" : "text-gray-800"}`}
@@ -110,9 +111,13 @@ const ContactForm = () => {
                   </div>
                 </div>
                 
+                <div className="mt-2 p-2 bg-gray-100 rounded-md text-sm text-gray-700">
+                  Выбранный номер: <span className="font-medium">{selectedPhoneNumber}</span>
+                </div>
+                
                 <div className="mt-4 flex space-x-4">
                   <a 
-                    href={`https://wa.me/${selectedPhoneNumber.replace(/[^0-9]/g, '')}`} 
+                    href={`https://wa.me/${selectedPhoneNumber.replace(/^\+/, '')}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-all"
@@ -121,7 +126,7 @@ const ContactForm = () => {
                     <span>WhatsApp</span>
                   </a>
                   <a 
-                    href={`https://t.me/${selectedPhoneNumber.replace(/[^0-9]/g, '')}`} 
+                    href={`https://t.me/${selectedPhoneNumber.replace(/^\+/, '')}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 bg-[#0088cc] text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-all"
