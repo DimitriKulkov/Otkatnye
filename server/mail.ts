@@ -1,22 +1,22 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
 import { RequestType } from "@shared/schema";
-
-const COMPANY_EMAIL = "zaborstroy68@yandex.com";
 
 // Check if Yandex mail password is set
 const yandexPassword = process.env.YANDEX_MAIL_KEY;
 if (!yandexPassword) {
-  console.warn("Warning: YANDEX_MAIL_KEY environment variable is not set. Email notifications will not be sent.");
+  console.warn(
+    "Warning: YANDEX_MAIL_KEY environment variable is not set. Email notifications will not be sent.",
+  );
 }
 
 // Create reusable transporter object using Yandex SMTP
 const transporter = nodemailer.createTransport({
-  host: "smtp.yandex.ru",
+  host: "smtp.yandex.com",
   port: 465,
-  secure: true, // use SSL
+  secure: true,
   auth: {
-    user: COMPANY_EMAIL,
-    pass: yandexPassword,
+    user: "zaborstroy68@yandex.com",
+    pass: "Kotvasya15",
   },
 });
 
@@ -33,29 +33,31 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
     // Log the email content for development purposes
     console.log("Email that would have been sent:", {
       to: params.to,
-      from: COMPANY_EMAIL,
+      from: "zaborstroy68@yandex.com",
       subject: params.subject,
     });
     return true; // Return true to not disrupt the user experience in development
   }
 
-  try {
-    const mailOptions = {
-      from: COMPANY_EMAIL, // Use the same address for both from and auth user
-      to: params.to,
-      subject: params.subject,
-      text: params.text || '',
-      html: params.html || '',
-    };
+    try {
+      const mailOptions = {
+        from: `"Zaborstroy Service" <${"zaborstroy68@yandex.com"}>`, // Корректный формат
+        to: "zaborstroy68@yandex.com",
+        subject: params.subject,
+        text: params.text || "",
+        html: params.html || "",
+      };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log(`Email sent successfully to ${params.to}. Message ID: ${info.messageId}`);
+    console.log(
+      `Email sent successfully to ${params.to}. Message ID: ${info.messageId}`,
+    );
     return true;
   } catch (error) {
-    console.error('Yandex mail error:', error);
+    console.error("Yandex mail error:", error);
     // Log the error details for debugging
     if (error instanceof Error) {
-      console.error('Error message:', error.message);
+      console.error("Error message:", error.message);
     }
     return false;
   }
@@ -69,62 +71,64 @@ export function generateContactRequestEmailContent(data: {
   comments?: string | null;
   requestType: RequestType;
 }) {
-  let requestTypeText = '';
-  let subject = '';
-  
+  let requestTypeText = "";
+  let subject = "";
+
   switch (data.requestType) {
-    case 'contact':
-      requestTypeText = 'Запрос обратной связи';
-      subject = 'Новый запрос обратной связи';
+    case "contact":
+      requestTypeText = "Запрос обратной связи";
+      subject = "Новый запрос обратной связи";
       break;
-    case 'cost':
-      requestTypeText = 'Расчет стоимости';
-      subject = 'Новый запрос на расчет стоимости';
+    case "cost":
+      requestTypeText = "Расчет стоимости";
+      subject = "Новый запрос на расчет стоимости";
       break;
-    case 'question':
-      requestTypeText = 'Вопрос';
-      subject = 'Новый вопрос от клиента';
+    case "question":
+      requestTypeText = "Вопрос";
+      subject = "Новый вопрос от клиента";
       break;
-    case 'review':
-      requestTypeText = 'Отзыв';
-      subject = 'Новый отзыв от клиента';
+    case "review":
+      requestTypeText = "Отзыв";
+      subject = "Новый отзыв от клиента";
       break;
   }
 
-  const serviceText = data.service 
-    ? `Услуга: ${data.service === 'fence' 
-      ? 'Забор' 
-      : data.service === 'canopy' 
-        ? 'Навес' 
-        : data.service === 'gate'
-          ? 'Ворота'
-          : data.service}`
-    : '';
+  const serviceText = data.service
+    ? `Услуга: ${
+        data.service === "fence"
+          ? "Забор"
+          : data.service === "canopy"
+            ? "Навес"
+            : data.service === "gate"
+              ? "Ворота"
+              : data.service
+      }`
+    : "";
 
   const text = `
     Новый ${requestTypeText} от клиента
     
     Имя: ${data.name}
     Телефон: ${data.phone}
-    ${data.email ? `Email: ${data.email}` : ''}
+    ${data.email ? `Email: ${data.email}` : ""}
     ${serviceText}
     
-    ${data.comments ? `Комментарий: ${data.comments}` : ''}
+    ${data.comments ? `Комментарий: ${data.comments}` : ""}
   `;
 
   const html = `
     <h2>Новый ${requestTypeText} от клиента</h2>
     <p><strong>Имя:</strong> ${data.name}</p>
     <p><strong>Телефон:</strong> ${data.phone}</p>
-    ${data.email ? `<p><strong>Email:</strong> ${data.email}</p>` : ''}
-    ${serviceText ? `<p><strong>${serviceText}</strong></p>` : ''}
+    ${data.email ? `<p><strong>Email:</strong> ${data.email}</p>` : ""}
+    ${serviceText ? `<p><strong>${serviceText}</strong></p>` : ""}
     
-    ${data.comments ? `<p><strong>Комментарий:</strong><br> ${data.comments.replace(/\n/g, '<br>')}</p>` : ''}
+    ${data.comments ? `<p><strong>Комментарий:</strong><br> ${data.comments.replace(/\n/g, "<br>")}</p>` : ""}
   `;
 
   return {
     subject,
     text,
-    html
+    html,
   };
 }
