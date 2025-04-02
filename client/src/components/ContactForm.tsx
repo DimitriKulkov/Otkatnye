@@ -38,7 +38,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
   const { toast } = useToast();
-  const [selectedPhoneNumber, setSelectedPhoneNumber] = useState<string>("+78953720542");
+  const [selectedPhoneNumber, setSelectedPhoneNumber] = useState<string>("79158692829");
   
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -96,27 +96,27 @@ const ContactForm = () => {
                 
                 <div className="space-y-3">
                   <div 
-                    className={`flex items-center cursor-pointer p-2 rounded-md transition-all ${selectedPhoneNumber === "+78953720542" ? "bg-[#E8EDE2] text-[#3C4D34] font-medium" : "hover:bg-gray-100"}`}
-                    onClick={() => setSelectedPhoneNumber("+78953720542")}
+                    className={`flex items-center cursor-pointer p-2 rounded-md transition-all ${selectedPhoneNumber === "79537205420" ? "bg-[#E8EDE2] text-[#3C4D34] font-medium" : "hover:bg-gray-100"}`}
+                    onClick={() => setSelectedPhoneNumber("79537205420")}
                   >
-                    <input type="radio" checked={selectedPhoneNumber === "+78953720542"} readOnly className="mr-3" />
-                    <a href="tel:+78953720542" className="hover:text-[#556B2F]" onClick={(e) => e.stopPropagation()}>+7 (895) 372-05-42</a>
+                    <input type="radio" checked={selectedPhoneNumber === "79537205420"} readOnly className="mr-3" />
+                    <a href="tel:79537205420" className="hover:text-[#556B2F]" onClick={(e) => e.stopPropagation()}>+7 (953) 720-54-20</a>
                   </div>
                   
                   <div 
-                    className={`flex items-center cursor-pointer p-2 rounded-md transition-all ${selectedPhoneNumber === "+78902939666" ? "bg-[#E8EDE2] text-[#3C4D34] font-medium" : "hover:bg-gray-100"}`}
-                    onClick={() => setSelectedPhoneNumber("+78902939666")}
+                    className={`flex items-center cursor-pointer p-2 rounded-md transition-all ${selectedPhoneNumber === "79029396664" ? "bg-[#E8EDE2] text-[#3C4D34] font-medium" : "hover:bg-gray-100"}`}
+                    onClick={() => setSelectedPhoneNumber("79029396664")}
                   >
-                    <input type="radio" checked={selectedPhoneNumber === "+78902939666"} readOnly className="mr-3" />
-                    <a href="tel:+78902939666" className="hover:text-[#556B2F]" onClick={(e) => e.stopPropagation()}>+7 (890) 293-96-66</a>
+                    <input type="radio" checked={selectedPhoneNumber === "79029396664"} readOnly className="mr-3" />
+                    <a href="tel:79029396664" className="hover:text-[#556B2F]" onClick={(e) => e.stopPropagation()}>+7 (902) 939-66-64</a>
                   </div>
                   
                   <div 
-                    className={`flex items-center cursor-pointer p-2 rounded-md transition-all ${selectedPhoneNumber === "+78915869282" ? "bg-[#E8EDE2] text-[#3C4D34] font-medium" : "hover:bg-gray-100"}`}
-                    onClick={() => setSelectedPhoneNumber("+78915869282")}
+                    className={`flex items-center cursor-pointer p-2 rounded-md transition-all ${selectedPhoneNumber === "79158692829" ? "bg-[#E8EDE2] text-[#3C4D34] font-medium" : "hover:bg-gray-100"}`}
+                    onClick={() => setSelectedPhoneNumber("79158692829")}
                   >
-                    <input type="radio" checked={selectedPhoneNumber === "+78915869282"} readOnly className="mr-3" />
-                    <a href="tel:+78915869282" className="hover:text-[#556B2F]" onClick={(e) => e.stopPropagation()}>+7 (891) 586-92-82</a>
+                    <input type="radio" checked={selectedPhoneNumber === "78915869282"} readOnly className="mr-3" />
+                    <a href="tel:79158692829" className="hover:text-[#556B2F]" onClick={(e) => e.stopPropagation()}>+7 (915) 869-28-29</a>
                   </div>
                 </div>
                 
@@ -134,15 +134,7 @@ const ContactForm = () => {
                     <FaWhatsapp size={22} />
                     <span>WhatsApp</span>
                   </a>
-                  <a 
-                    href={`https://t.me/${selectedPhoneNumber.replace(/^\+/, '')}`} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 bg-[#0088cc] text-white px-4 py-3 rounded-lg hover:bg-opacity-90 transition-all shadow-sm w-full sm:w-auto"
-                  >
-                    <FaTelegram size={22} />
-                    <span>Telegram</span>
-                  </a>
+                
                 </div>
               </div>
               

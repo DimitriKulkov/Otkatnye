@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useMutation } from "@tanstack/react-query";
 import { insertContactRequestSchema } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
@@ -29,7 +30,7 @@ interface QuestionDialogProps {
 
 const QuestionDialog = ({ triggerClassName, children }: QuestionDialogProps) => {
   const [open, setOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // State is managed by React Query's mutation
   const { toast } = useToast();
 
   // Initialize form with default values
@@ -45,11 +46,9 @@ const QuestionDialog = ({ triggerClassName, children }: QuestionDialogProps) => 
     },
   });
 
-  // Submit handler
-  const onSubmit = async (data: FormValues) => {
-    setIsSubmitting(true);
-    
-    try {
+  // Use React Query mutation for API request
+  const mutation = useMutation({
+    mutationFn: async (data: FormValues) => {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -64,27 +63,34 @@ const QuestionDialog = ({ triggerClassName, children }: QuestionDialogProps) => 
         }),
       });
       
-      if (response.ok) {
-        toast({
-          title: "Вопрос отправлен",
-          description: "Мы ответим вам в ближайшее время",
-        });
-        form.reset();
-        setOpen(false);
-      } else {
+      if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || "Ошибка при отправке запроса");
       }
-    } catch (error) {
+      
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Вопрос отправлен",
+        description: "Мы ответим вам в ближайшее время",
+      });
+      form.reset();
+      setOpen(false);
+    },
+    onError: (error: Error) => {
       console.error("Error submitting question form:", error);
       toast({
         title: "Ошибка",
         description: "Не удалось отправить вопрос. Пожалуйста, попробуйте еще раз.",
         variant: "destructive",
       });
-    } finally {
-      setIsSubmitting(false);
-    }
+    },
+  });
+
+  // Submit handler
+  const onSubmit = (data: FormValues) => {
+    mutation.mutate(data);
   };
 
   return (
@@ -176,9 +182,9 @@ const QuestionDialog = ({ triggerClassName, children }: QuestionDialogProps) => 
             <Button 
               type="submit" 
               className="w-full bg-[#3C4D34] hover:bg-[#2E3B28]"
-              disabled={isSubmitting}
+              disabled={mutation.isPending}
             >
-              {isSubmitting ? "Отправка..." : "Отправить вопрос"}
+              {mutation.isPending ? "Отправка..." : "Отправить вопрос"}
             </Button>
           </form>
         </Form>

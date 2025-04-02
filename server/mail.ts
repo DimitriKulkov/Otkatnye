@@ -1,6 +1,8 @@
 import nodemailer from "nodemailer";
 import { RequestType } from "@shared/schema";
 
+const COMPANY_EMAIL = "zaborstroy68@yandex.com";
+
 // Check if Yandex mail password is set
 const yandexPassword = process.env.YANDEX_MAIL_KEY;
 if (!yandexPassword) {
@@ -11,12 +13,12 @@ if (!yandexPassword) {
 
 // Create reusable transporter object using Yandex SMTP
 const transporter = nodemailer.createTransport({
-  host: "smtp.yandex.com",
+  host: "smtp.yandex.ru",
   port: 465,
-  secure: true,
+  secure: true, // use SSL
   auth: {
-    user: "zaborstroy68@yandex.com",
-    pass: "Kotvasya15",
+    user: COMPANY_EMAIL,
+    pass: yandexPassword,
   },
 });
 
@@ -33,24 +35,24 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
     // Log the email content for development purposes
     console.log("Email that would have been sent:", {
       to: params.to,
-      from: "zaborstroy68@yandex.com",
+      from: COMPANY_EMAIL,
       subject: params.subject,
     });
     return true; // Return true to not disrupt the user experience in development
   }
 
-    try {
-      const mailOptions = {
-        from: `"Zaborstroy Service" <${"zaborstroy68@yandex.com"}>`, // Корректный формат
-        to: "zaborstroy68@yandex.com",
-        subject: params.subject,
-        text: params.text || "",
-        html: params.html || "",
-      };
+  try {
+    const mailOptions = {
+      from: COMPANY_EMAIL,
+      to: COMPANY_EMAIL, // Always send to the company email
+      subject: params.subject,
+      text: params.text || "",
+      html: params.html || "",
+    };
 
     const info = await transporter.sendMail(mailOptions);
     console.log(
-      `Email sent successfully to ${params.to}. Message ID: ${info.messageId}`,
+      `Email sent successfully to ${COMPANY_EMAIL}. Message ID: ${info.messageId}`,
     );
     return true;
   } catch (error) {

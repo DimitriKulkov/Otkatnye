@@ -35,9 +35,9 @@ const Header = () => {
           <a href="#faq" className="text-gray-700 hover:text-[#3C4D34] hover:underline decoration-[#A1B189] underline-offset-4 font-medium transition-all">Контакты</a>
         </div>
         <div className="hidden md:flex items-center">
-          <a href="tel:+78953720542" className="flex items-center gap-2 bg-[#F8F7F4] hover:bg-[#E8EDE2] px-4 py-2 rounded-lg transition-all border border-[#A1B189]/20">
+          <a href="tel:79537205420" className="flex items-center gap-2 bg-[#F8F7F4] hover:bg-[#E8EDE2] px-4 py-2 rounded-lg transition-all border border-[#A1B189]/20">
             <Phone className="h-4 w-4 text-[#3C4D34]" />
-            <span className="text-[#3C4D34] font-medium">+7 (895) 372-05-42</span>
+            <span className="text-[#3C4D34] font-medium">+7 (953) 720-54-20</span>
           </a>
         </div>
         <button className="md:hidden text-[#3C4D34] focus:outline-none" onClick={toggleMenu}>
@@ -105,7 +105,7 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 <Phone className="h-5 w-5 text-[#3C4D34]" />
-                +7 (895) 372-05-42
+                +7 (953) 720-54-20
               </a>
             </div>
           </div>
