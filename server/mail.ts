@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import { RequestType } from "@shared/schema";
 
-const COMPANY_EMAIL = "zaborstroy68@yandex.com";
+const COMPANY_EMAIL = "otckatnye.v@yandex.com";
 
 // Check if Yandex mail password is set
 const yandexPassword = process.env.YANDEX_MAIL_KEY;
@@ -13,7 +13,7 @@ if (!yandexPassword) {
 
 // Create reusable transporter object using Yandex SMTP
 const transporter = nodemailer.createTransport({
-  host: "smtp.yandex.ru",
+  host: "smtp.yandex.com",
   port: 465,
   secure: true, // use SSL
   auth: {
