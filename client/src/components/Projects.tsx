@@ -2,6 +2,16 @@ import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 
+// Import project images
+import corrugatedFenceImg from "@assets/photo_2025-04-03_14-35-55.jpg";
+import euroWalletFenceImg from "@assets/photo_2025-04-03_14-36-06.jpg";
+import fence3dSectionsImg from "@assets/photo_2025-04-03_14-36-15.jpg";
+import sectionalFenceImg from "@assets/photo_2025-04-03_14-36-34.jpg";
+import polycarbonateCanopyImg from "@assets/photo_2025-04-03_15-05-02.jpg";
+import slidingGateImg from "@assets/photo_2025-04-03_15-06-09.jpg";
+import swingGateImg from "@assets/photo_2025-04-03_14-36-45.jpg";
+import decorativeGateImg from "@assets/photo_2025-04-03_15-05-51.jpg";
+
 interface Project {
   id: number;
   title: string;
@@ -20,7 +30,7 @@ const projectsData: Project[] = [
     description: "Установка забора из профнастила на металлическом каркасе.",
     location: "г. Клин",
     type: "fence",
-    imageUrl: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    imageUrl: corrugatedFenceImg,
     tags: ["Профнастил", "Металлический каркас", "Двухсторонний"]
   },
   {
@@ -29,7 +39,7 @@ const projectsData: Project[] = [
     description: "Установка забора из евроштакетника на металлическом каркасе.",
     location: "д. Бельяниново",
     type: "fence",
-    imageUrl: "https://images.unsplash.com/photo-1631885134871-c3a652d76208?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    imageUrl: euroWalletFenceImg,
     tags: ["Евроштакетник", "Шахматная установка", "Забор с фундаментом"]
   },
   {
@@ -38,7 +48,7 @@ const projectsData: Project[] = [
     description: "Установка 3D забора из сварной сетки с полимерным покрытием.",
     location: "г. Броницы",
     type: "fence",
-    imageUrl: "https://images.unsplash.com/photo-1628944682084-831f35256aea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    imageUrl: fence3dSectionsImg,
     tags: ["3D сетка", "Полимерное покрытие", "Современный дизайн"]
   },
   {
@@ -47,47 +57,47 @@ const projectsData: Project[] = [
     description: "Монтаж секционного забора в городской стилистике.",
     location: "Метро Белорусская",
     type: "fence",
-    imageUrl: "https://images.unsplash.com/photo-1518618750560-8f07abda93d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    tags: ["Секционный", ]
+    imageUrl: sectionalFenceImg,
+    tags: ["Секционный", "Металлический", "Современный дизайн"]
   },
   
   // Навесы
   {
     id: 5,
     title: "Навес из поликарбоната",
-    description: "Установка навеса из  поликарбоната для автомобиля с каркасом из металла.",
+    description: "Установка навеса из поликарбоната для автомобиля с каркасом из металла.",
     location: "г. Люберцы",
     type: "canopy",
-    imageUrl: "https://images.unsplash.com/photo-1598554369497-b8474b0bfdf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    imageUrl: polycarbonateCanopyImg,
     tags: ["Поликарбонат", "Навес для автомобиля", "Арочная конструкция"]
   },
   
   // Ворота
   {
-    id: 8,
+    id: 6,
     title: "Откатные ворота с автоматикой",
     description: "Установка откатных ворот с автоматическим приводом и дистанционным управлением.",
     location: "г. Королев",
     type: "gate",
-    imageUrl: "https://images.unsplash.com/photo-1542372147193-a7aca54189cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    imageUrl: slidingGateImg,
     tags: ["Откатные", "Автоматика", "Дистанционное управление"]
   },
   {
-    id: 9,
+    id: 7,
     title: "Распашные ворота",
     description: "Изготовление и установка распашных ворот с калиткой для загородного участка.",
     location: "г. Чехов",
     type: "gate",
-    imageUrl: "https://images.unsplash.com/photo-1588880331179-bc93f1a29f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    imageUrl: swingGateImg,
     tags: ["Распашные", "С калиткой", "Для частного дома"]
   },
   {
-    id: 10,
+    id: 8,
     title: "Декоративные кованые ворота",
     description: "Разработка и установка кованых ворот с элементами художественной ковки.",
     location: "г. Истра",
     type: "gate",
-    imageUrl: "https://images.unsplash.com/photo-1541807120430-f3f78c281225?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    imageUrl: decorativeGateImg,
     tags: ["Кованые", "Художественная ковка", "Премиум-класс"]
   }
 ];
