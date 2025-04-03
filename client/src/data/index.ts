@@ -1,3 +1,6 @@
+// Import the successfully uploaded image
+import metalTileCanopyImg from "@assets/мя.jpg";
+
 // Data for Services Section
 export const fenceTypes = [
   {
@@ -43,7 +46,7 @@ export const canopyTypes = [
     title: "Навес из металлочерепицы",
     description: "Надежность и стильный внешний вид. Идеально сочетается с кровлей дома.",
     price: "от 6 500 руб/м²",
-    image: "https://images.unsplash.com/photo-1629774631812-eb9e7a9fb7b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+    image: metalTileCanopyImg
   },
   {
     title: "Навес из мягкой кровли",
@@ -114,7 +117,6 @@ export const reviews = [
     image: "https://images.unsplash.com/photo-1598554369497-b8474b0bfdf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
     text: "\"Заказывали навес из поликарбоната для автомобиля. Работу выполнили в срок, материалы качественные. Навес получился красивым и функциональным.\"",
     author: "Елена М.",
-  
   },
   {
     rating: 4.8,
