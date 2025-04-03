@@ -17,8 +17,8 @@ const projectsData: Project[] = [
   {
     id: 1,
     title: "Забор из профнастила",
-    description: "Установка забора из профнастила высотой 2 метра на металлическом каркасе.",
-    location: "Москва, район Митино",
+    description: "Установка забора из профнастила на металлическом каркасе.",
+    location: "г. Клин",
     type: "fence",
     imageUrl: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     tags: ["Профнастил", "Металлический каркас", "Двухсторонний"]
@@ -26,17 +26,17 @@ const projectsData: Project[] = [
   {
     id: 2,
     title: "Забор из евроштакетника",
-    description: "Установка забора из евроштакетника с шахматным расположением элементов.",
-    location: "Московская область, Химки",
+    description: "Установка забора из евроштакетника на металлическом каркасе.",
+    location: "д. Бельяниново",
     type: "fence",
     imageUrl: "https://images.unsplash.com/photo-1631885134871-c3a652d76208?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     tags: ["Евроштакетник", "Шахматная установка", "Забор с фундаментом"]
   },
   {
     id: 3,
-    title: "3D забор из сетки",
+    title: "Забор из 3D секций ",
     description: "Установка 3D забора из сварной сетки с полимерным покрытием.",
-    location: "Москва, Новая Москва",
+    location: "г. Броницы",
     type: "fence",
     imageUrl: "https://images.unsplash.com/photo-1628944682084-831f35256aea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     tags: ["3D сетка", "Полимерное покрытие", "Современный дизайн"]
@@ -44,40 +44,22 @@ const projectsData: Project[] = [
   {
     id: 4,
     title: "Секционный забор",
-    description: "Монтаж секционного забора с кирпичными столбами для загородного дома.",
-    location: "Московская область, Одинцово",
+    description: "Монтаж секционного забора в городской стилистике.",
+    location: "Метро Белорусская",
     type: "fence",
     imageUrl: "https://images.unsplash.com/photo-1518618750560-8f07abda93d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    tags: ["Секционный", "Кирпичные столбы", "Частный дом"]
+    tags: ["Секционный", ]
   },
   
   // Навесы
   {
     id: 5,
     title: "Навес из поликарбоната",
-    description: "Установка навеса из сотового поликарбоната для автомобиля с каркасом из металла.",
-    location: "Москва, район Кузьминки",
+    description: "Установка навеса из  поликарбоната для автомобиля с каркасом из металла.",
+    location: "г. Люберцы",
     type: "canopy",
     imageUrl: "https://images.unsplash.com/photo-1598554369497-b8474b0bfdf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     tags: ["Поликарбонат", "Навес для автомобиля", "Арочная конструкция"]
-  },
-  {
-    id: 6,
-    title: "Навес для террасы",
-    description: "Монтаж навеса с комбинированным покрытием для летней террасы загородного дома.",
-    location: "Московская область, Красногорск",
-    type: "canopy",
-    imageUrl: "https://images.unsplash.com/photo-1598181819743-7eed687bcdf2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    tags: ["Для террасы", "Комбинированное покрытие", "Летний отдых"]
-  },
-  {
-    id: 7,
-    title: "Навес для бассейна",
-    description: "Изготовление и установка сдвижного навеса над бассейном на придомовой территории.",
-    location: "Московская область, Мытищи",
-    type: "canopy",
-    imageUrl: "https://images.unsplash.com/photo-1629774631812-eb9e7a9fb7b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    tags: ["Сдвижной навес", "Для бассейна", "Всесезонное использование"]
   },
   
   // Ворота
@@ -85,7 +67,7 @@ const projectsData: Project[] = [
     id: 8,
     title: "Откатные ворота с автоматикой",
     description: "Установка откатных ворот с автоматическим приводом и дистанционным управлением.",
-    location: "Москва, район Строгино",
+    location: "г. Королев",
     type: "gate",
     imageUrl: "https://images.unsplash.com/photo-1542372147193-a7aca54189cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     tags: ["Откатные", "Автоматика", "Дистанционное управление"]
@@ -94,7 +76,7 @@ const projectsData: Project[] = [
     id: 9,
     title: "Распашные ворота",
     description: "Изготовление и установка распашных ворот с калиткой для загородного участка.",
-    location: "Московская область, Солнечногорск",
+    location: "г. Чехов",
     type: "gate",
     imageUrl: "https://images.unsplash.com/photo-1588880331179-bc93f1a29f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     tags: ["Распашные", "С калиткой", "Для частного дома"]
@@ -103,7 +85,7 @@ const projectsData: Project[] = [
     id: 10,
     title: "Декоративные кованые ворота",
     description: "Разработка и установка кованых ворот с элементами художественной ковки.",
-    location: "Москва, Рублевское шоссе",
+    location: "г. Истра",
     type: "gate",
     imageUrl: "https://images.unsplash.com/photo-1541807120430-f3f78c281225?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     tags: ["Кованые", "Художественная ковка", "Премиум-класс"]

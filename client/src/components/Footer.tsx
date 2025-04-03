@@ -14,7 +14,7 @@ const Footer = () => {
             </div>
             <p className="text-white/90 mb-6 max-w-md">
               Профессиональная установка заборов, навесов и ворот в Москве и
-              Московской области с 2010 года.
+              Московской области.
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3">

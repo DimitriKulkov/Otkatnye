@@ -17,8 +17,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true, // use SSL
   auth: {
-    user: COMPANY_EMAIL,
-    pass: yandexPassword,
+    user: "otckatnye.v@yandex.com",
+    pass: "htxzzympkubpopoq",
   },
 });
 
@@ -35,7 +35,7 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
     // Log the email content for development purposes
     console.log("Email that would have been sent:", {
       to: params.to,
-      from: COMPANY_EMAIL,
+      from: "otckatnye.v@yandex.com",
       subject: params.subject,
     });
     return true; // Return true to not disrupt the user experience in development
@@ -43,8 +43,8 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
 
   try {
     const mailOptions = {
-      from: COMPANY_EMAIL,
-      to: COMPANY_EMAIL, // Always send to the company email
+      from: "otckatnye.v@yandex.com",
+      to: "otckatnye.v@yandex.com", // Always send to the company email
       subject: params.subject,
       text: params.text || "",
       html: params.html || "",

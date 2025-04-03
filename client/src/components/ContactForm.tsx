@@ -32,6 +32,7 @@ const formSchema = z.object({
   email: z.string().email({ message: "Введите корректный email" }).optional().or(z.literal("")),
   service: z.string({ required_error: "Выберите услугу" }),
   comments: z.string().optional(),
+  requestType: z.string().optional(),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -48,6 +49,7 @@ const ContactForm = () => {
       email: "",
       service: "",
       comments: "",
+      requestType: "contact",
     },
   });
 
@@ -73,6 +75,7 @@ const ContactForm = () => {
   });
 
   function onSubmit(data: FormValues) {
+    // The requestType is already set in the form's default values
     mutate(data);
   }
 
@@ -82,7 +85,7 @@ const ContactForm = () => {
         <div className="text-center mb-14">
           <h2 className="text-3xl lg:text-4xl font-bold text-[#3C4D34] mb-4">Связаться с нами</h2>
           <div className="h-1 w-20 bg-[#A1B189] mx-auto mb-4"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">Оставьте заявку, и наш специалист свяжется с вами для проведения бесплатного замера и расчета стоимости</p>
+          <p className="text-gray-600 max-w-2xl mx-auto">Оставьте заявку, и наш специалист свяжется с вами в ближайшее время</p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
@@ -146,7 +149,7 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-medium text-[#3C4D34]">Email</h4>
-                  <p><a href="mailto:zaborstroy68@yandex.com" className="text-gray-700 hover:text-[#556B2F]">zaborstroy68@yandex.com</a></p>
+                  <p><a href="mailto:otckatnye.v@yandex.com" className="text-gray-700 hover:text-[#556B2F]">otckatnye.v@yandex.com</a></p>
                 </div>
               </div>
               
@@ -166,7 +169,7 @@ const ContactForm = () => {
           </div>
           
           <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-[#A1B189]">
-            <h3 className="text-2xl font-bold text-[#3C4D34] mb-6">Рассчитать стоимость</h3>
+            <h3 className="text-2xl font-bold text-[#3C4D34] mb-6">Связаться с нами</h3>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
@@ -272,7 +275,7 @@ const ContactForm = () => {
                   className="w-full bg-[#3C4D34] hover:bg-[#526B47] text-white font-semibold py-4 px-6 rounded-lg transition duration-300 ease-in-out shadow-sm"
                   disabled={isPending}
                 >
-                  {isPending ? "Отправка..." : "Рассчитать стоимость"}
+                  {isPending ? "Отправка..." : "Отправить заявку"}
                 </Button>
                 
                 <p className="text-sm text-gray-500 text-center">

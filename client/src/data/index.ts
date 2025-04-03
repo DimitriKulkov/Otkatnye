@@ -33,7 +33,7 @@ export const fenceTypes = [
   {
     title: "Поликарбонатный забор",
     description: "Светопропускающий материал с УФ-защитой. Современный и стильный внешний вид.",
-    price: "цена по запросу",
+    price: "от 2 300 руб/пог.м",
     image: "https://images.unsplash.com/photo-1505409859467-3a796fd5798e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
   }
 ];
@@ -98,7 +98,7 @@ export const priceList = [
   { service: "Калитки", price: "от 8 000 руб" },
   { service: "Автоматика", price: "от 35 000 руб" },
   { service: "Секционный забор", price: "от 3 500 руб/пог.м" },
-  { service: "Поликарбонатный забор", price: "цена по запросу" }
+  { service: "Поликарбонатный забор", price: "от 2 300 руб/пог.м" }
 ];
 
 // Data for Reviews Section
@@ -108,21 +108,19 @@ export const reviews = [
     image: "https://images.unsplash.com/photo-1620578603738-1e7328301d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
     text: "\"Отличная работа! Установили забор из профнастила за 2 дня. Качество на высоте, цена соответствует заявленной. Рекомендую!\"",
     author: "Андрей В.",
-    location: "г. Москва"
   },
   {
     rating: 5.0,
     image: "https://images.unsplash.com/photo-1598554369497-b8474b0bfdf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
     text: "\"Заказывали навес из поликарбоната для автомобиля. Работу выполнили в срок, материалы качественные. Навес получился красивым и функциональным.\"",
     author: "Елена М.",
-    location: "г. Химки"
+  
   },
   {
-    rating: 4.5,
+    rating: 4.8,
     image: "https://images.unsplash.com/photo-1542372147193-a7aca54189cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
     text: "\"Установили откатные ворота с автоматикой. Процесс занял чуть больше времени, чем планировали, но результат превзошел ожидания. Ворота работают безупречно.\"",
     author: "Михаил С.",
-    location: "Московская обл."
   }
 ];
 
