@@ -1,5 +1,21 @@
-// Import the successfully uploaded image
-import metalTileCanopyImg from "@assets/мя.jpg";
+// Import attached assets for fences
+import rabitsaFence from "@assets/рабица 1.png";
+import profFence from "@assets/Как сделать забор из профнастила_ пошаговая инструкция 1.png";
+import euroFence from "@assets/загрузка 1.png";
+import fence3D from "@assets/3d 1.png";
+import sectionFence from "@assets/секционный забор 1.png";
+import polycarbonateFence from "@assets/поликарбонат 1.png";
+
+// Import attached assets for canopies
+import metalTileCanopy from "@assets/металл 1.png";
+import softRoofCanopy from "@assets/мя 1.png";
+import polycarbonateCanopy from "@assets/мягкая 1.png";
+
+// Import attached assets for gates
+import slidingGate from "@assets/откатные 1.png";
+import swingGate from "@assets/Welding Fabs 1.png";
+import wicket from "@assets/калитка 1.png";
+import gateAutomation from "@assets/DACE Ultima gate automation 1.png";
 
 // Data for Services Section
 export const fenceTypes = [
@@ -7,37 +23,37 @@ export const fenceTypes = [
     title: "Сетка-рабица",
     description: "Экономичный вариант с быстрой установкой. Идеально подходит для дачных участков.",
     price: "от 900 руб/пог.м",
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+    image: rabitsaFence
   },
   {
     title: "Профнастил",
     description: "Долговечный забор с защитой от ветра. Широкий выбор цветов и фактур.",
     price: "от 2 000 руб/пог.м",
-    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+    image: profFence
   },
   {
     title: "Евроштакетник",
     description: "Эстетичный забор с антикоррозийным покрытием. Стильный и современный вид.",
     price: "от 2 500 руб/пог.м",
-    image: "https://images.unsplash.com/photo-1631885134871-c3a652d76208?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+    image: euroFence
   },
   {
     title: "3D сетка",
     description: "Современный дизайн с высокой прочностью. Отличная видимость и безопасность.",
     price: "от 1 900 руб/пог.м",
-    image: "https://images.unsplash.com/photo-1628944682084-831f35256aea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+    image: fence3D
   },
   {
     title: "Секционный забор",
     description: "Модульная конструкция с простой установкой. Высокая надежность и долговечность.",
     price: "от 3 500 руб/пог.м",
-    image: "https://images.unsplash.com/photo-1518618750560-8f07abda93d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+    image: sectionFence
   },
   {
     title: "Поликарбонатный забор",
     description: "Светопропускающий материал с УФ-защитой. Современный и стильный внешний вид.",
     price: "от 2 300 руб/пог.м",
-    image: "https://images.unsplash.com/photo-1505409859467-3a796fd5798e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+    image: polycarbonateFence
   }
 ];
 
@@ -46,19 +62,19 @@ export const canopyTypes = [
     title: "Навес из металлочерепицы",
     description: "Надежность и стильный внешний вид. Идеально сочетается с кровлей дома.",
     price: "от 6 500 руб/м²",
-    image: metalTileCanopyImg
+    image: metalTileCanopy
   },
   {
     title: "Навес из мягкой кровли",
     description: "Гибкость конструкции и шумопоглощение. Разнообразие форм и цветовых решений.",
     price: "от 6 500 руб/м²",
-    image: "https://images.unsplash.com/photo-1598181819743-7eed687bcdf2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+    image: softRoofCanopy
   },
   {
     title: "Навес из поликарбоната",
     description: "Легкий вес и устойчивость к погодным условиям. Пропускает естественный свет.",
     price: "от 6 500 руб/м²",
-    image: "https://images.unsplash.com/photo-1598554369497-b8474b0bfdf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+    image: polycarbonateCanopy
   }
 ];
 
@@ -67,25 +83,25 @@ export const gateTypes = [
     title: "Откатные ворота",
     description: "Экономия пространства и совместимость с автоматикой.",
     price: "от 70 000 руб",
-    image: "https://images.unsplash.com/photo-1542372147193-a7aca54189cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+    image: slidingGate
   },
   {
     title: "Распашные ворота",
     description: "Классический дизайн и простота использования.",
     price: "от 20 000 руб",
-    image: "https://images.unsplash.com/photo-1588880331179-bc93f1a29f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+    image: swingGate
   },
   {
     title: "Калитки",
     description: "Индивидуальный дизайн под стиль забора. Надежность и долговечность.",
     price: "от 8 000 руб",
-    image: "https://images.unsplash.com/photo-1541807120430-f3f78c281225?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+    image: wicket
   },
   {
     title: "Автоматика для ворот",
     description: "Дистанционное управление и повышенная безопасность.",
     price: "от 35 000 руб",
-    image: "https://images.unsplash.com/photo-1519734004356-f588de029302?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+    image: gateAutomation
   }
 ];
 
