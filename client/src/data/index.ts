@@ -17,6 +17,11 @@ import swingGate from "@assets/Welding Fabs 1.png";
 import wicket from "@assets/калитка 1.png";
 import gateAutomation from "@assets/DACE Ultima gate automation 1.png";
 
+// Import attached assets for reviews
+import reviewPhoto1 from "@assets/photo_2025-04-03_14-35-55.jpg";
+import reviewPhoto2 from "@assets/photo_2025-04-03_14-37-06.jpg";
+import reviewPhoto3 from "@assets/photo_2025-04-03_14-36-45.jpg";
+
 // Data for Services Section
 export const fenceTypes = [
   {
@@ -124,21 +129,24 @@ export const priceList = [
 export const reviews = [
   {
     rating: 5.0,
-    image: "https://images.unsplash.com/photo-1620578603738-1e7328301d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+    image: reviewPhoto1,
     text: "\"Отличная работа! Установили забор из профнастила за 2 дня. Качество на высоте, цена соответствует заявленной. Рекомендую!\"",
     author: "Андрей В.",
+    location: "г. Клин",
   },
   {
     rating: 5.0,
-    image: "https://images.unsplash.com/photo-1598554369497-b8474b0bfdf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+    image: reviewPhoto2,
     text: "\"Заказывали навес из поликарбоната для автомобиля. Работу выполнили в срок, материалы качественные. Навес получился красивым и функциональным.\"",
     author: "Елена М.",
+    location: "г. Люберцы",
   },
   {
     rating: 4.8,
-    image: "https://images.unsplash.com/photo-1542372147193-a7aca54189cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-    text: "\"Установили откатные ворота с автоматикой. Процесс занял чуть больше времени, чем планировали, но результат превзошел ожидания. Ворота работают безупречно.\"",
+    image: reviewPhoto3,
+    text: "\"Установили распашные ворота. Процесс занял чуть больше времени, чем планировали, но результат превзошел ожидания. Ворота работают безупречно.\"",
     author: "Михаил С.",
+    location: "г. Чехов",
   }
 ];
 

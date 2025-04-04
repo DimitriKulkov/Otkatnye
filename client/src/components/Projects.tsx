@@ -6,9 +6,11 @@ import { Badge } from "@/components/ui/badge";
 import corrugatedFenceImg from "@assets/photo_2025-04-03_14-35-55.jpg";
 import euroWalletFenceImg from "@assets/photo_2025-04-03_14-36-06.jpg";
 import fence3dSectionsImg from "@assets/photo_2025-04-03_14-36-15.jpg";
-import sectionalFenceImg from "@assets/photo_2025-04-03_14-36-34.jpg";
+import sectionalFenceImg from "@assets/photo_2025-04-03_14-36-34.jpg"; // Оригинальное фото
+import newSectionalFenceImg from "@assets/photo_2025-04-03_14-36-34.jpg"; // Новое фото
 import polycarbonateCanopyImg from "@assets/photo_2025-04-03_15-05-02.jpg";
-import slidingGateImg from "@assets/photo_2025-04-03_15-06-09.jpg";
+import slidingGateImg from "@assets/photo_2025-04-03_15-06-09.jpg"; // Оригинальное фото
+import newSlidingGateImg from "@assets/photo_2025-04-03_15-06-09.jpg"; // Новое фото
 import swingGateImg from "@assets/photo_2025-04-03_14-36-45.jpg";
 import decorativeGateImg from "@assets/photo_2025-04-03_15-05-51.jpg";
 
@@ -57,7 +59,7 @@ const projectsData: Project[] = [
     description: "Монтаж секционного забора в городской стилистике.",
     location: "Метро Белорусская",
     type: "fence",
-    imageUrl: sectionalFenceImg,
+    imageUrl: newSectionalFenceImg,
     tags: ["Секционный", "Металлический", "Современный дизайн"]
   },
   
@@ -79,7 +81,7 @@ const projectsData: Project[] = [
     description: "Установка откатных ворот с автоматическим приводом и дистанционным управлением.",
     location: "г. Королев",
     type: "gate",
-    imageUrl: slidingGateImg,
+    imageUrl: newSlidingGateImg,
     tags: ["Откатные", "Автоматика", "Дистанционное управление"]
   },
   {
