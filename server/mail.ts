@@ -10,6 +10,9 @@ const transporter = nodemailer.createTransport({
     user: "otckatnye.v@yandex.com",
     pass: "htxzzympkubpopoq",
   },
+  connectionTimeout: 60000, // 60 секунд
+    socketTimeout: 60000,
+    greetingTimeout: 60000,
 });
 
 interface EmailParams {
@@ -28,6 +31,14 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
       text: params.text || "",
       html: params.html || "",
     };
+    const info = await transporter.sendMail(mailOptions);
+        console.log("Письмо отправлено. ID:", info.messageId);
+        return true;
+      } catch (error) {
+        console.error("Полная ошибка SMTP:", error);
+        return false;
+      }
+    }
 
     await transporter.sendMail(mailOptions);
     
