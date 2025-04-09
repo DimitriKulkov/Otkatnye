@@ -5,6 +5,7 @@ import { RequestType } from "@shared/schema";
 const transporter = nodemailer.createTransport({
   host: "smtp.yandex.com",
   port: 465,
+  secure: true,
   auth: {
     user: "otckatnye.v@yandex.com",
     pass: "htxzzympkubpopoq",
