@@ -59,7 +59,7 @@ const projectsData: Project[] = [
     description: "Монтаж секционного забора в городской стилистике.",
     location: "Метро Белорусская",
     type: "fence",
-    imageUrl: newSectionalFenceImg,
+    imageUrl: newSlidingGateImg,
     tags: ["Секционный", "Металлический", "Современный дизайн"]
   },
   
@@ -81,7 +81,7 @@ const projectsData: Project[] = [
     description: "Установка откатных ворот с автоматическим приводом и дистанционным управлением.",
     location: "г. Королев",
     type: "gate",
-    imageUrl: newSlidingGateImg,
+    imageUrl: newSectionalFenceImg,
     tags: ["Откатные", "Автоматика", "Дистанционное управление"]
   },
   {
