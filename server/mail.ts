@@ -1,16 +1,6 @@
 import nodemailer from "nodemailer";
 import { RequestType } from "@shared/schema";
 
-const COMPANY_EMAIL = "otckatnye.v@yandex.com";
-
-// Check if Yandex mail password is set
-const yandexPassword = process.env.YANDEX_MAIL_KEY;
-if (!yandexPassword) {
-  console.warn(
-    "Warning: YANDEX_MAIL_KEY environment variable is not set. Email notifications will not be sent.",
-  );
-}
-
 // Create reusable transporter object using Yandex SMTP
 const transporter = nodemailer.createTransport({
   host: "smtp.yandex.com",
@@ -30,17 +20,6 @@ interface EmailParams {
 }
 
 export async function sendEmail(params: EmailParams): Promise<boolean> {
-  if (!yandexPassword) {
-    console.log("Email sending skipped: No Yandex mail password provided");
-    // Log the email content for development purposes
-    console.log("Email that would have been sent:", {
-      to: params.to,
-      from: "otckatnye.v@yandex.com",
-      subject: params.subject,
-    });
-    return true; // Return true to not disrupt the user experience in development
-  }
-
   try {
     const mailOptions = {
       from: "otckatnye.v@yandex.com",
@@ -50,10 +29,8 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
       html: params.html || "",
     };
 
-    const info = await transporter.sendMail(mailOptions);
-    console.log(
-      `Email sent successfully to ${COMPANY_EMAIL}. Message ID: ${info.messageId}`,
-    );
+    await transporter.sendMail(mailOptions);
+    
     return true;
   } catch (error) {
     console.error("Yandex mail error:", error);
