@@ -25,12 +25,12 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
       from: "otckatnye.v@yandex.com",
       to: "otckatnye.v@yandex.com", // Always send to the company email
       subject: params.subject,
-      text: params.text || "",
-      html: params.html || "",
+      text: params.text  "",
+      html: params.html  "",
     };
 
     await transporter.sendMail(mailOptions);
-    
+
     return true;
   } catch (error) {
     console.error("Yandex mail error:", error);
@@ -86,23 +86,23 @@ export function generateContactRequestEmailContent(data: {
 
   const text = `
     Новый ${requestTypeText} от клиента
-    
+
     Имя: ${data.name}
     Телефон: ${data.phone}
-    ${data.email ? `Email: ${data.email}` : ""}
+    ${data.email ? Email: ${data.email} : ""}
     ${serviceText}
-    
-    ${data.comments ? `Комментарий: ${data.comments}` : ""}
+
+    ${data.comments ? Комментарий: ${data.comments} : ""}
   `;
 
   const html = `
     <h2>Новый ${requestTypeText} от клиента</h2>
     <p><strong>Имя:</strong> ${data.name}</p>
     <p><strong>Телефон:</strong> ${data.phone}</p>
-    ${data.email ? `<p><strong>Email:</strong> ${data.email}</p>` : ""}
-    ${serviceText ? `<p><strong>${serviceText}</strong></p>` : ""}
-    
-    ${data.comments ? `<p><strong>Комментарий:</strong><br> ${data.comments.replace(/\n/g, "<br>")}</p>` : ""}
+    ${data.email ? <p><strong>Email:</strong> ${data.email}</p> : ""}
+    ${serviceText ? <p><strong>${serviceText}</strong></p> : ""}
+
+    ${data.comments ? <p><strong>Комментарий:</strong><br> ${data.comments.replace(/\n/g, "<br>")}</p> : ""}
   `;
 
   return {
