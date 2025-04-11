@@ -2,14 +2,26 @@ import nodemailer from "nodemailer";
 import { RequestType } from "@shared/schema";
 
 // Create reusable transporter object using Yandex SMTP
-const transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport(
+  {
   host: "smtp.yandex.com",
   port: 465,
   secure: true,
+  connectionTimeout: 10000,
   auth: {
     user: "otckatnye.v@yandex.com",
     pass: "htxzzympkubpopoq",
   },
+}
+);
+
+
+transporter.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Server is ready to take our messages");
+  }
 });
 
 interface EmailParams {
@@ -31,7 +43,7 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
 
     await transporter.sendMail(mailOptions);
 
-    return true;
+    return success
   } catch (error) {
     console.error("Yandex mail error:", error);
     // Log the error details for debugging
@@ -100,7 +112,7 @@ export function generateContactRequestEmailContent(data: {
     <p><strong>Имя:</strong> ${data.name}</p>
     <p><strong>Телефон:</strong> ${data.phone}</p>
     ${data.email ? `<p><strong>Email:</strong> ${data.email}</p>` : ""}
-    ${serviceText ? `<p><strong>${serviceText}</strong></p>` : ""}
+    ${serviceText ? `<p><strong>${serviceText}</strong></p>` : ""}</p>
 
     ${data.comments ? `<p><strong>Комментарий:</strong><br> ${data.comments.replace(/\\n/g, "<br>")}</p>` : ""}
   `;
