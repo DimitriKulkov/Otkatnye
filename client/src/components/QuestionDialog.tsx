@@ -48,7 +48,7 @@ const QuestionDialog = ({ triggerClassName, children }: QuestionDialogProps) => 
 
   // Use React Query mutation for API request
   const mutation = useMutation({
-    mutationFn: async (data: FormValues)  => {
+    mutationFn: async (data: FormValues) => {
       const response = await fetch("https://xn--80ahflg0c8g.com/api/contact", {
         method: "POST",
         headers: {
