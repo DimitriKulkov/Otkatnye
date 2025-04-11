@@ -70,13 +70,15 @@ const QuestionDialog = ({ triggerClassName, children }: QuestionDialogProps) => 
       
       return response.json();
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
       toast({
         title: "Вопрос отправлен",
         description: "Мы ответим вам в ближайшее время",
       });
       form.reset();
       setOpen(false);
+      console.log("Success:", data); // Log success data for debugging
+
     },
     onError: (error: Error) => {
       console.error("Error submitting question form:", error);
@@ -85,6 +87,7 @@ const QuestionDialog = ({ triggerClassName, children }: QuestionDialogProps) => 
         description: "Не удалось отправить вопрос. Пожалуйста, попробуйте еще раз.",
         variant: "destructive",
       });
+      return { success: false, message: error.message };
     },
   });
 

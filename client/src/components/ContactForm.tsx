@@ -54,8 +54,29 @@ const ContactForm = () => {
   });
 
   const { mutate, isPending } = useMutation({
-    mutationFn: async (data: FormValues) => {
-      const response = await apiRequest("POST", "/api/contact", data);
+    mutationFn: async (data: FormValues) => {      
+      const response = await fetch("https://xn--80ahflg0c8g.com/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: data.name,
+          phone: data.phone,
+          email: data.email || undefined,
+          service: data.service,
+          comments: data.comments,
+          requestType: "contact",
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.log(errorData);
+        throw new Error(errorData.message || "Ошибка при отправке запроса");
+      }
+
+
       return response.json();
     },
     onSuccess: () => {
@@ -65,11 +86,14 @@ const ContactForm = () => {
       });
       form.reset();
     },
-    onError: (error) => {
+    onError: (error: any) => {
+      console.log(error);
       toast({
         title: "Ошибка",
-        description: error.message || "Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.",
+        description: "Не удалось отправить запрос. Пожалуйста, попробуйте еще раз.",
         variant: "destructive",
+
+
       });
     },
   });

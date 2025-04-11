@@ -85,7 +85,7 @@ ${data.address ? `Адрес: ${data.address}` : ""}
 ${data.comments ? `Дополнительно: ${data.comments}` : ""}
       `.trim();
       
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://xn--80ahflg0c8g.com/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -108,14 +108,19 @@ ${data.comments ? `Дополнительно: ${data.comments}` : ""}
         form.reset();
         setOpen(false);
       } else {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Ошибка при отправке запроса");
+        const error = await response.json();
+        console.log(error)
+        throw new Error(error.message || "Ошибка при отправке запроса");
       }
     } catch (error) {
       console.error("Error submitting calculator form:", error);
+      let description = "Не удалось отправить запрос. Пожалуйста, попробуйте еще раз.";
+      if (error instanceof Error) {
+          description = error.message
+      }
       toast({
         title: "Ошибка",
-        description: "Не удалось отправить запрос. Пожалуйста, попробуйте еще раз.",
+        description: description,
         variant: "destructive",
       });
     } finally {
