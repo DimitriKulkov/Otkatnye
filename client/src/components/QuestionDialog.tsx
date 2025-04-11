@@ -48,7 +48,7 @@ const QuestionDialog = ({ triggerClassName, children }: QuestionDialogProps) => 
 
   // Use React Query mutation for API request
   const mutation = useMutation({
-    mutationFn: async (data: FormValues) => {
+    mutationFn: async (data: FormValues)  => {
       const response = await fetch("https://xn--80ahflg0c8g.com/api/contact", {
         method: "POST",
         headers: {
@@ -72,7 +72,6 @@ const QuestionDialog = ({ triggerClassName, children }: QuestionDialogProps) => 
     },
     onSuccess: (data) => {
       toast({
-        title: "Вопрос отправлен",
         description: "Мы ответим вам в ближайшее время",
       });
       form.reset();
@@ -80,7 +79,6 @@ const QuestionDialog = ({ triggerClassName, children }: QuestionDialogProps) => 
       console.log("Success:", data); // Log success data for debugging
 
     },
-    onError: (error: Error) => {
       console.error("Error submitting question form:", error);
       toast({
         title: "Ошибка",

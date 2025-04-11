@@ -85,7 +85,7 @@ ${data.address ? `Адрес: ${data.address}` : ""}
 ${data.comments ? `Дополнительно: ${data.comments}` : ""}
       `.trim();
       
-      const response = await fetch("https://xn--80ahflg0c8g.com/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
