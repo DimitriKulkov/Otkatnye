@@ -79,6 +79,7 @@ const QuestionDialog = ({ triggerClassName, children }: QuestionDialogProps) => 
       console.log("Success:", data); // Log success data for debugging
 
     },
+    onError: (error: Error) => {
       console.error("Error submitting question form:", error);
       toast({
         title: "Ошибка",
