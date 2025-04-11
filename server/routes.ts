@@ -12,7 +12,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
   app.post("/api/contact", async (req, res) => {
     try {
-      const data = insertContactRequestSchema.parse(req.body);
+      const data = insertContactRequestSchema.parse(JSON.parse(req.body));
       const requestType = data.requestType as RequestType;
       
       // Save to database
