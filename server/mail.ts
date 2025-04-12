@@ -4,14 +4,14 @@ import { RequestType } from "@shared/schema";
 // Create reusable transporter object using Yandex SMTP
 const transporter = nodemailer.createTransport(
   {
-  host: "smtp.yandex.ru",
-  port: 587,
-  secure: false,
-  connectionTimeout: 10000,
-  auth: {
-    user: "otckatnye.v@yandex.com",
-    pass: "htxzzympkubpopoq",
-  },
+    host: "smtp.yandex.com",
+    port: 465,
+    secure: true,
+    connectionTimeout: 10000,
+    auth: {
+      user: "zaborstroy68@yandex.com", // Use your Yandex email here
+      pass: "kopwfegnizwputas", // Use your Yandex App Password here
+    },
 }
 );
 
@@ -34,8 +34,8 @@ interface EmailParams {
 export async function sendEmail(params: EmailParams): Promise<boolean> {
   try {
     const mailOptions = {
-      from: "otckatnye.v@yandex.com",
-      to: "otckatnye.v@yandex.com", // Always send to the company email
+      from: "zaborstroy68@yandex.com",
+      to: "zaborstroy68@yandex.com", // Always send to the company email
       subject: params.subject,
       text: params.text || "",
       html: params.html || "",
