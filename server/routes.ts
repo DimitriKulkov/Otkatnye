@@ -6,7 +6,7 @@ import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { sendEmail, generateContactRequestEmailContent } from "./mail";
 
-const COMPANY_EMAIL = "otckatnye.v@yandex.com";
+const COMPANY_EMAIL = "votkatnye@yandex.ru";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint

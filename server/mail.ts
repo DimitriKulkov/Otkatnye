@@ -4,13 +4,13 @@ import { RequestType } from "@shared/schema";
 // Create reusable transporter object using Yandex SMTP
 const transporter = nodemailer.createTransport(
   {
-    host: "smtp.yandex.com",
+    host: "smtp.yandex.ru",
     port: 465,
     secure: true,
     connectionTimeout: 10000,
     auth: {
-      user: "otckatnye.v@yandex.com", // Use your Yandex email here
-      pass: "htxzzympkubpopoq", // Use your Yandex App Password here
+      user: "votkatnye@yandex.ru", // Use your Yandex email here
+      pass: "qqklnpjbvavgqjyn", // Use your Yandex App Password here
     },
 }
 );
@@ -34,8 +34,8 @@ interface EmailParams {
 export async function sendEmail(params: EmailParams): Promise<boolean> {
   try {
     const mailOptions = {
-      from: "otckatnye.v@yandex.com",
-      to: "otckatnye.v@yandex.com", // Always send to the company email
+      from: "votkatnye@yandex.ru",
+      to: "votkatnye@yandex.ru", // Always send to the company email
       subject: params.subject,
       text: params.text || "",
       html: params.html || "",
@@ -100,7 +100,7 @@ export function generateContactRequestEmailContent(data: {
     Новый ${requestTypeText} от клиента
 
     Имя: ${data.name}
-    Телефон: ${data.phone}
+    Телефон: ${data.phone} 
     ${data.email ? `Email: ${data.email}` : ""}
     ${serviceText}
 
