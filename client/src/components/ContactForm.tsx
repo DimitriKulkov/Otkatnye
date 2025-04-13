@@ -55,7 +55,7 @@ const ContactForm = () => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: async (data: FormValues) => {      
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://xn--80ahflg0c8g.com/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -315,3 +315,4 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
+
