@@ -1,9 +1,5 @@
-import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { HelpCircle } from "lucide-react";
 import { faqItems } from "@/data";
-import QuestionDialog from "./QuestionDialog";
 
 const FAQ = () => {
   return (
@@ -36,17 +32,6 @@ const FAQ = () => {
               </AccordionItem>
             ))}
           </Accordion>
-          
-          <div className="text-center">
-            <p className="text-gray-600 mb-6">Не нашли ответ на свой вопрос?</p>
-            
-            <QuestionDialog>
-              <Button className="bg-[#3C4D34] hover:bg-[#2E3B28] flex items-center gap-2">
-                <HelpCircle className="h-4 w-4" />
-                Задать вопрос
-              </Button>
-            </QuestionDialog>
-          </div>
         </div>
       </div>
     </section>
