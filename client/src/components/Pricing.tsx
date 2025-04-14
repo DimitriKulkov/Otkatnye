@@ -46,15 +46,7 @@ const Pricing = () => {
             Выберите категорию для просмотра детальной информации о стоимости наших услуг
           </p>
           
-          <CalculatorDialog>
-            <Button 
-              className="bg-[#3C4D34] hover:bg-[#2E3B28] text-white"
-            >
-              <Calculator className="h-4 w-4 mr-2" />
-              Рассчитать индивидуальную стоимость
-            </Button>
-          </CalculatorDialog>
-        </div>
+        
 
         <Tabs defaultValue="fences" className="w-full max-w-4xl mx-auto">
           <TabsList className="grid w-full grid-cols-3 rounded-lg bg-[#F8F7F4] p-1">
