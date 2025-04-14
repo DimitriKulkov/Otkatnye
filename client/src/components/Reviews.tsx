@@ -1,8 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Star, MessageSquare } from "lucide-react";
 import { reviews } from "@/data";
-import ReviewDialog from "./ReviewDialog";
 
 const Reviews = () => {
   return (
@@ -46,17 +44,6 @@ const Reviews = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-        
-        <div className="text-center">
-          <p className="text-gray-600 mb-6">Остались довольны нашей работой? Поделитесь своим мнением!</p>
-          
-          <ReviewDialog>
-            <Button className="bg-[#3C4D34] hover:bg-[#2E3B28] flex items-center gap-2">
-              <MessageSquare className="h-4 w-4" />
-              Оставить отзыв
-            </Button>
-          </ReviewDialog>
         </div>
       </div>
     </section>
