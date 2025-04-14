@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactRequestSchema, RequestType } from "@shared/schema";
+import { insertContactRequestSchema, RequestType } from "../shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { sendEmail, generateContactRequestEmailContent } from "./mail";
