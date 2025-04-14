@@ -1,46 +1,30 @@
 <!DOCTYPE html>
-<html lang="ru" data-region="moskva">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Явное указание региона в метатегах -->
-    <meta name="geo.region" content="RU-MOS">
-    <meta name="geo.placename" content="Москва">
-    <title>ПрофОград - Установка заборов в Москве и МО | Официальный сайт</title>
-    <meta name="description" content="✅ Профессиональный монтаж заборов, ворот и навесов в Москве и Московской области. Бесплатный замер. ">
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ПрофОград - Установка заборов, навесов и ворот в Москве и Московской области</title>
+    <meta name="description" content="Профессиональный монтаж заборов, навесов и ворот в Москве и МО. Бесплатный замер и расчет стоимости. ">
     
-    <!-- Open Graph с явным указанием региона -->
-    <meta property="og:title" content="ПрофОград - Заборы в Москве и области">
-    <meta property="og:description" content="Профессиональный монтаж заборов, ворот и навесов в Москве и Московской области. Бесплатный замер.">
-    <meta property="og:image" content="https://xn--80aahf1cn.com/og-moskow.jpg">
-    <meta property="og:url" content="https://xn--80aahf1cn.com/">
+    <!-- Open Graph метатеги для соцсетей -->
+    <meta property="og:title" content="ПрофОград - Установка заборов в Москве и Московской области">
+    <meta property="og:description" content="Профессиональный монтаж ограждений с гарантией. Работаем по всей Москве и МО. ">
     <meta property="og:type" content="website">
     
-    <!-- Микроразметка Schema.org -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "ПрофОград",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Москва",
-            "addressRegion": "Московская область"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "55.7558",
-            "longitude": "37.6176"
-        }
-    }
-    </script>
-</head>
-<body>
-    <!-- Контент сайта -->
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- Проверка всех скрытых элементов -->
-    <div style="display:none" aria-hidden="true">
-        <p>Москва и Московская область</p> <!-- Явное упоминание региона -->
-    </div>
-</body>
+    <!-- Иконки -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer" />
+  </head>
+  
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
