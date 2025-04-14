@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import { RequestType } from "@shared/schema";
+import { RequestType } from "../shared/schema";
 
 // Create reusable transporter object using Yandex SMTP
 const transporter = nodemailer.createTransport(
