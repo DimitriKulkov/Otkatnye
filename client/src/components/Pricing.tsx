@@ -1,9 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { fenceTypes, canopyTypes, gateTypes, priceList } from "@/data";
-import CalculatorDialog from "./CalculatorDialog";
-import { Button } from "@/components/ui/button";
-import { Calculator } from "lucide-react";
 
 // Group price list items by category
 const fencePrices = priceList.filter(item => 
@@ -46,7 +43,8 @@ const Pricing = () => {
             Выберите категорию для просмотра детальной информации о стоимости наших услуг
           </p>
           
-        
+      
+        </div>
 
         <Tabs defaultValue="fences" className="w-full max-w-4xl mx-auto">
           <TabsList className="grid w-full grid-cols-3 rounded-lg bg-[#F8F7F4] p-1">
@@ -107,3 +105,4 @@ const Pricing = () => {
 };
 
 export default Pricing;
+
