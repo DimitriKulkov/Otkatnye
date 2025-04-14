@@ -1,107 +1,9 @@
 import { useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
+import { FaWhatsapp } from "react-icons/fa";
 import { useToast } from "@/hooks/use-toast";
-import { FaWhatsapp, FaTelegram } from "react-icons/fa";
-
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
-const formSchema = z.object({
-  name: z.string().min(2, { message: "Имя должно содержать не менее 2 символов" }),
-  phone: z.string().min(10, { message: "Введите корректный номер телефона" }),
-  email: z.string().email({ message: "Введите корректный email" }).optional().or(z.literal("")),
-  service: z.string({ required_error: "Выберите услугу" }),
-  comments: z.string().optional(),
-  requestType: z.string().optional(),
-});
-
-type FormValues = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
-  const { toast } = useToast();
   const [selectedPhoneNumber, setSelectedPhoneNumber] = useState<string>("79158692829");
-  
-  const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      phone: "",
-      email: "",
-      service: "",
-      comments: "",
-      requestType: "contact",
-    },
-  });
-
-  const { mutate, isPending } = useMutation({
-    mutationFn: async (data: FormValues) => {      
-      const response = await fetch("https://xn--80ahflg0c8g.com/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: data.name,
-          phone: data.phone,
-          email: data.email || undefined,
-          service: data.service,
-          comments: data.comments,
-          requestType: "contact",
-        }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.log(errorData);
-        throw new Error(errorData.message || "Ошибка при отправке запроса");
-      }
-
-
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Заявка отправлена",
-        description: "Спасибо! Наш менеджер свяжется с вами в течение 30 минут.",
-      });
-      form.reset();
-    },
-    onError: (error: any) => {
-      console.log(error);
-      toast({
-        title: "Ошибка",
-        description: "Не удалось отправить запрос. Пожалуйста, попробуйте еще раз.",
-        variant: "destructive",
-
-
-      });
-    },
-  });
-
-  function onSubmit(data: FormValues) {
-    // The requestType is already set in the form's default values
-    mutate(data);
-  }
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-[#F5F1E8] to-[#EDE5D6]">
@@ -109,10 +11,9 @@ const ContactForm = () => {
         <div className="text-center mb-14">
           <h2 className="text-3xl lg:text-4xl font-bold text-[#3C4D34] mb-4">Связаться с нами</h2>
           <div className="h-1 w-20 bg-[#A1B189] mx-auto mb-4"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">Оставьте заявку, и наш специалист свяжется с вами в ближайшее время</p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div className="max-w-2xl mx-auto">
           <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-[#A1B189]">
             <h3 className="text-2xl font-bold text-[#3C4D34] mb-6">Контактная информация</h3>
             
@@ -161,7 +62,6 @@ const ContactForm = () => {
                     <FaWhatsapp size={22} />
                     <span>WhatsApp</span>
                   </a>
-                
                 </div>
               </div>
               
@@ -190,123 +90,6 @@ const ContactForm = () => {
                 </div>
               </div>
             </div>
-          </div>
-          
-          <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-[#A1B189]">
-            <h3 className="text-2xl font-bold text-[#3C4D34] mb-6">Связаться с нами</h3>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-[#3C4D34] font-medium">Имя</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="Введите ваше имя" 
-                          {...field} 
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A1B189] focus:border-transparent bg-[#F8F7F4]"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-[#3C4D34] font-medium">Телефон</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="+7 (___) ___-__-__" 
-                          {...field} 
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A1B189] focus:border-transparent bg-[#F8F7F4]"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-[#3C4D34] font-medium">Email</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="example@domain.com" 
-                          {...field} 
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A1B189] focus:border-transparent bg-[#F8F7F4]"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="service"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-[#3C4D34] font-medium">Тип услуги</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger 
-                            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A1B189] focus:border-transparent bg-[#F8F7F4]"
-                          >
-                            <SelectValue placeholder="Выберите услугу" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="fence">Заборы</SelectItem>
-                          <SelectItem value="canopy">Навесы</SelectItem>
-                          <SelectItem value="gate">Ворота и калитки</SelectItem>
-                          <SelectItem value="other">Другое</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="comments"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-[#3C4D34] font-medium">Комментарии</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          placeholder="Опишите ваш проект или укажите дополнительные требования" 
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A1B189] focus:border-transparent bg-[#F8F7F4] h-32"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <Button 
-                  type="submit" 
-                  className="w-full bg-[#3C4D34] hover:bg-[#526B47] text-white font-semibold py-4 px-6 rounded-lg transition duration-300 ease-in-out shadow-sm"
-                  disabled={isPending}
-                >
-                  {isPending ? "Отправка..." : "Отправить заявку"}
-                </Button>
-                
-                <p className="text-sm text-gray-500 text-center">
-                  Нажимая на кнопку, вы соглашаетесь с нашей политикой конфиденциальности
-                </p>
-              </form>
-            </Form>
           </div>
         </div>
       </div>
