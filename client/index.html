@@ -1,35 +1,41 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-region="moscow">
   <head>
     <meta charset="UTF-8" />
+    <meta name="geo.region" content="RU-MOS">
+    <meta name="geo.placename" content="Москва">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ПрофОград - Установка заборов, навесов и ворот в Москве и Московской области</title>
-    <meta name="description" content="Профессиональный монтаж заборов, навесов и ворот в Москве и МО. Бесплатный замер и расчет стоимости.">
-    
-    <!-- Open Graph метатеги для соцсетей -->
-    <meta property="og:title" content="ПрофОград - Установка заборов в Москве и Московской области">
-    <meta property="og:description" content="Профессиональный монтаж ограждений с гарантией. Работаем по всей Москве и МО.">
-    <meta property="og:type" content="website">
+    <title>ПрофОград - Монтаж заборов в Москве и Московской области | Официальный сайт</title>
+    <meta name="description" content="✅ Установка заборов, ворот и навесов в Москве и МО. Бесплатный замер. ">
+
+    <!-- Социальные метатеги -->
+    <meta property="og:title" content="ПрофОград - Установка заборов, ворот и навесов в Москве и МО. Бесплатный замер.">
+    <meta property="og:image" content="https://ваш-сайт.ru/images/og-moscow-fence.jpg">
+    <meta property="og:url" content="https://ваш-сайт.ru/">
+    <meta property="og:site_name" content="ПрофОград Москва">
     
     <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <!-- Иконки -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-          crossorigin="anonymous" 
-          referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
-  
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Дополнительные метатеги для Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ПрофОград - Заборы и Навесы в Москве и МО">
-    <meta name="twitter:description" content="Установка качественных ограждений с гарантией в Москве и области.">
+    <!-- Явное указание региона в микроразметке -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "ПрофОград",
+      "areaServed": ["Москва", "Московская область"],
+      "description": "Установка заборов и ворот в Москве и МО"
+    }
+    </script>
   </body>
 </html>
